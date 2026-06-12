@@ -1,10 +1,10 @@
 # Debian Hyprland Dotfiles v2
 
-Konfigurasi Hyprland pribadi, berbasis [JaKooLit Hyprland-Dots](https://github.com/JaKooLit), yang dimodifikasi dan disesuaikan untuk **Hyprland v0.55.2** di Debian.
+Personal Hyprland configuration, based on [JaKooLit Hyprland-Dots](https://github.com/JaKooLit), modified and adapted for **Hyprland v0.55.2** on Debian.
 
 ---
 
-## 📋 Spesifikasi
+## 📋 Specs
 
 - **Compositor**: Hyprland `v0.55.2`
 - **Distro**: Debian
@@ -13,47 +13,47 @@ Konfigurasi Hyprland pribadi, berbasis [JaKooLit Hyprland-Dots](https://github.c
 
 ---
 
-## 📁 Struktur Folder
+## 📁 Folder Structure
 
 ```
 ~/.config/hypr/
-├── hyprland.conf          # Entry point, source semua config lain
-├── hyprland-gui.conf       # Settings dari HyprMod (GUI tool)
-├── monitors.conf           # Konfigurasi monitor (nwg-displays)
-├── workspaces.conf         # Aturan workspace
+├── hyprland.conf          # Entry point, sources all other configs
+├── hyprland-gui.conf       # Settings from HyprMod (GUI tool)
+├── monitors.conf           # Monitor configuration (nwg-displays)
+├── workspaces.conf         # Workspace rules
 ├── hypridle.conf            # Idle daemon config
 ├── hyprlock.conf            # Lockscreen config
 │
 ├── configs/
-│   └── Keybinds.conf        # Keybind default dari JaKooLit (jangan banyak diubah)
+│   └── Keybinds.conf        # JaKooLit default keybinds (avoid heavy edits)
 │
-├── UserConfigs/             # ⭐ Tempat utama kustomisasi
-│   ├── UserKeybinds.conf     # Keybind custom milik sendiri
-│   ├── UserSettings.conf     # Settings utama (dwindle, decoration, plugin, dll)
+├── UserConfigs/             # ⭐ Main place for customization
+│   ├── UserKeybinds.conf     # Personal custom keybinds
+│   ├── UserSettings.conf     # Core settings (dwindle, decoration, plugins, etc.)
 │   ├── UserAnimations.conf
 │   ├── UserDecorations.conf
 │   ├── WindowRules.conf
 │   ├── Laptops.conf / LaptopDisplay.conf
-│   ├── Startup_Apps.conf     # exec-once untuk aplikasi startup
+│   ├── Startup_Apps.conf     # exec-once for startup applications
 │   └── ENVariables.conf      # Environment variables
 │
-├── animations/              # Kumpulan preset animasi (ML4W, HyDE, dll)
-├── scripts/                 # Script bash untuk fitur tambahan (rofi, screenshot, dll)
-├── UserScripts/             # Script custom tambahan
-├── wallpaper_effects/        # Cache wallpaper effect
+├── animations/              # Animation presets (ML4W, HyDE, etc.)
+├── scripts/                 # Bash scripts for extra features (rofi, screenshot, etc.)
+├── UserScripts/             # Additional custom scripts
+├── wallpaper_effects/        # Wallpaper effect cache
 └── wallust/                  # Theme/colorscheme generator output
 ```
 
 ---
 
-## 🔌 Plugin (via hyprpm)
+## 🔌 Plugins (via hyprpm)
 
-| Plugin | Repo | Fungsi |
+| Plugin | Repo | Purpose |
 |---|---|---|
-| `hyprgrass` | [horriblename/hyprgrass](https://github.com/horriblename/hyprgrass) | Touchscreen/trackpad gestures (swipe ganti workspace) |
-| `hyprexpo` (fork) | [sandwichfarm/hyprexpo](https://github.com/sandwichfarm/hyprexpo) | Workspace overview (expo) — fork community karena plugin official sudah retired sejak Hyprland 0.55 |
+| `hyprgrass` | [horriblename/hyprgrass](https://github.com/horriblename/hyprgrass) | Touchscreen/trackpad gestures (swipe to switch workspaces) |
+| `hyprexpo` (fork) | [sandwichfarm/hyprexpo](https://github.com/sandwichfarm/hyprexpo) | Workspace overview (expo) — community fork, since the official plugin was retired as of Hyprland 0.55 |
 
-### Install plugin
+### Install plugins
 ```bash
 hyprpm add https://github.com/horriblename/hyprgrass
 hyprpm add https://github.com/sandwichfarm/hyprexpo
@@ -62,7 +62,7 @@ hyprpm enable hyprexpo
 hyprpm reload -n
 ```
 
-### Update plugin (setelah update Hyprland)
+### Update plugins (after a Hyprland update)
 ```bash
 hyprpm update
 hyprpm reload -n
@@ -70,46 +70,46 @@ hyprpm reload -n
 
 ---
 
-## ⌨️ Keybinds Penting
+## ⌨️ Key Keybinds
 
-> Default keybind lengkap ada di `configs/Keybinds.conf`, custom keybind di `UserConfigs/UserKeybinds.conf`.
+> Full default keybinds are in `configs/Keybinds.conf`, custom keybinds are in `UserConfigs/UserKeybinds.conf`.
 
-| Keybind | Aksi |
+| Keybind | Action |
 |---|---|
-| `SUPER + Return` | Buka terminal |
+| `SUPER + Return` | Open terminal |
 | `SUPER + D` | App launcher (rofi) |
 | `SUPER + E` | File manager |
-| `SUPER + Q` | Tutup window aktif |
-| `SUPER + W` | Pilih wallpaper |
-| `SUPER + R` | Wallpaper random |
+| `SUPER + Q` | Close active window |
+| `SUPER + W` | Select wallpaper |
+| `SUPER + R` | Random wallpaper |
 | `SUPER + A` | Workspace overview (hyprexpo+) |
 | `SUPER + SHIFT + I` | Toggle split (dwindle) |
 | `SUPER + SPACE` | Toggle floating |
 | `SUPER + SHIFT + F` | Fullscreen |
 | `SUPER + N` | Toggle night light (hyprsunset) |
-| `SUPER + H` | Cheat sheet keybinds |
-| `Swipe 3 jari` | Ganti workspace (hyprgrass) |
+| `SUPER + H` | Keybind cheat sheet |
+| `3-finger swipe` | Switch workspace (hyprgrass) |
 
 ---
 
-## ⚙️ Catatan Migrasi ke Hyprland 0.55.2
+## ⚙️ Migration Notes for Hyprland 0.55.2
 
-Beberapa breaking change yang sudah diperbaiki di config ini:
+Breaking changes already fixed in this config:
 
-1. **`togglesplit` dispatcher dihapus** sejak 0.54 → diganti `layoutmsg, togglesplit`
+1. **`togglesplit` dispatcher removed** since 0.54 → replaced with `layoutmsg, togglesplit`
    ```
    bind = $mainMod SHIFT, I, layoutmsg, togglesplit
    ```
 
-2. **`dwindle:pseudotile`** dihapus di 0.55 (tidak berfungsi apa-apa) → dihapus dari `UserSettings.conf`
+2. **`dwindle:pseudotile`** removed in 0.55 (it wasn't doing anything) → removed from `UserSettings.conf`
 
-3. **`misc:vfr`** dipindah ke `debug:` (bukan untuk production) → dihapus dari `UserSettings.conf`
+3. **`misc:vfr`** moved to `debug:` (not meant for production use) → removed from `UserSettings.conf`
 
-4. **`hyprexpo` official plugin** sudah *retired* dari `hyprwm/hyprland-plugins` → diganti dengan fork [`sandwichfarm/hyprexpo`](https://github.com/sandwichfarm/hyprexpo) ("hyprexpo+") yang masih maintained dan mendukung keyboard navigation + label workspace.
+4. **Official `hyprexpo` plugin retired** from `hyprwm/hyprland-plugins` → replaced with the [`sandwichfarm/hyprexpo`](https://github.com/sandwichfarm/hyprexpo) fork ("hyprexpo+"), which is actively maintained and adds keyboard navigation + workspace labels.
 
 ---
 
-## 🚀 Instalasi (di mesin baru)
+## 🚀 Installation (on a new machine)
 
 ```bash
 git clone https://github.com/Akashio28/Debian_Hyprland_dotfilesv2.git ~/.config/hypr
@@ -125,7 +125,7 @@ hyprctl reload
 
 ---
 
-## 📝 TODO / Catatan
+## 📝 TODO / Notes
 
-- [ ] Pertimbangkan migrasi config ke Lua (opsional, hyprlang masih didukung untuk beberapa rilis ke depan)
-- [ ] Bersihkan file backup (`*.bak`, `*-old.conf`) yang sudah tidak terpakai
+- [ ] Consider migrating config to Lua (optional, hyprlang is still supported for the next several releases)
+- [ ] Clean up unused backup files (`*.bak`, `*-old.conf`)
