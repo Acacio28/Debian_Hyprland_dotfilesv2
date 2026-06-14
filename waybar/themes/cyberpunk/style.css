@@ -1,0 +1,217 @@
+@import "/home/acacio/.config/waybar/wallust/colors-waybar.css";
+
+/* ══════════════════════════════════════════════════
+ *   CYBERPUNK NEON EDGE DESIGN SYSTEM
+ *   ══════════════════════════════════════════════════ */
+* {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    font-family: "JetBrains Nerd Font", monospace;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #00ffff;
+}
+
+tooltip {
+    background: #0d0e15;
+    border: 2px solid #ff007f;
+    border-radius: 0px;
+    box-shadow: 0 0 10px #ff007f;
+}
+
+tooltip label {
+    color: #00ffff;
+    padding: 4px 8px;
+    text-shadow: 0 0 3px #00ffff;
+}
+
+/* ── WORKSPACES ───────────────────────────────── */
+#workspaces {
+    background: #0d0e15;
+    border: 2px solid #00ffff;
+    border-radius: 0px;
+    padding: 1px 10px;
+    margin: 4px 6px;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+#workspaces button {
+    padding: 0px 6px;
+    margin: 4px 2px;
+    background-color: transparent;
+    color: #4b454a;
+    border-radius: 0px;
+    min-width: 20px;
+    min-height: 20px;
+    font-size: 11px;
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button.active {
+    background: #ff007f;
+    color: #0d0e15;
+    text-shadow: none;
+    box-shadow: 0 0 10px #ff007f;
+}
+
+#workspaces button.focused {
+    background: #00ffff;
+    color: #0d0e15;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 255, 255, 0.2);
+    color: #00ffff;
+}
+
+#workspaces button.urgent {
+    background: #ffff00;
+    color: #0d0e15;
+    box-shadow: 0 0 12px #ffff00;
+}
+
+/* ── MODULES ──────────────────────────────────── */
+#clock,
+#pulseaudio,
+#backlight,
+#custom-swaync,
+#tray,
+#custom-nix,
+#network,
+#bluetooth,
+#battery {
+    background: #0d0e15;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    border-radius: 0px;
+    padding: 4px 12px;
+    margin: 4px 3px;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    text-shadow: 0 0 3px #00ffff;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Alternate colors for cyberpunk feel */
+#custom-nix {
+    color: #ff007f;
+    border-color: #ff007f;
+    box-shadow: 0 0 8px rgba(255, 0, 127, 0.4);
+    text-shadow: 0 0 4px #ff007f;
+    font-size: 14px;
+}
+
+#clock {
+    color: #ffff00;
+    border-color: #ffff00;
+    box-shadow: 0 0 8px rgba(255, 255, 0, 0.4);
+    text-shadow: 0 0 4px #ffff00;
+}
+
+#battery {
+    color: #ff007f;
+    border-color: #ff007f;
+    box-shadow: 0 0 8px rgba(255, 0, 127, 0.4);
+    text-shadow: 0 0 4px #ff007f;
+}
+
+#battery.charging {
+    color: #00ffff;
+    border-color: #00ffff;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+}
+
+#battery.critical:not(.charging) {
+    color: #ff0000;
+    border-color: #ff0000;
+    box-shadow: 0 0 15px #ff0000;
+    text-shadow: 0 0 5px #ff0000;
+    animation: cyber-blink 0.4s steps(2, start) infinite;
+}
+
+#custom-swaync {
+    color: #ff007f;
+    border-color: #ff007f;
+    box-shadow: 0 0 8px rgba(255, 0, 127, 0.4);
+    text-shadow: 0 0 4px #ff007f;
+}
+
+#tray {
+    border-color: #b026ff;
+    color: #b026ff;
+    box-shadow: 0 0 8px rgba(176, 38, 255, 0.4);
+    text-shadow: 0 0 4px #b026ff;
+}
+
+/* ── CAVA ─────────────────────────────────────── */
+#custom-cava {
+    color: #00ffff;
+    background: transparent;
+    border: none;
+    padding: 4px 12px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin: 4px 2px;
+}
+
+#custom-cava.active {
+    color: #00ffff;
+    background: #0d0e15;
+    border: 2px solid #00ffff;
+    border-radius: 0px;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+}
+
+/* ── WINDOW ───────────────────────────────────── */
+#window {
+    color: #00ffff;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    text-shadow: 0 0 3px #00ffff;
+    font-size: 11px;
+}
+
+/* ── HOVER ACTIONS ────────────────────────────── */
+#clock:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#custom-swaync:hover,
+#custom-nix:hover,
+#network:hover,
+#bluetooth:hover,
+#battery:hover {
+    background: #00ffff;
+    color: #0d0e15;
+    box-shadow: 0 0 15px #00ffff;
+    text-shadow: none;
+    transform: scale(1.03);
+}
+
+#custom-nix:hover {
+    background: #ff007f;
+    color: #0d0e15;
+    box-shadow: 0 0 15px #ff007f;
+}
+
+#battery:hover {
+    background: #ff007f;
+    color: #0d0e15;
+    box-shadow: 0 0 15px #ff007f;
+}
+
+/* ── ANIMATIONS ───────────────────────────────── */
+@keyframes cyber-blink {
+    to {
+        border-color: transparent;
+        box-shadow: none;
+        text-shadow: none;
+    }
+}

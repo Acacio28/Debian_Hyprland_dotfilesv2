@@ -1,0 +1,33 @@
+# /* ---- 💫 https://github.com/Akashio28 💫 ---- */  #
+# /* wallust template - colors-cava */
+
+[general]
+bars = 20
+framerate = 60
+
+[input]
+method = pulse
+source = alsa_output.pci-0000_00_1f.3.analog-stereo.monitor
+
+[output]
+method = raw
+raw_target = /dev/stdout
+data_format = ascii
+ascii_max_range = 7
+bar_delimiter = 59
+frame_delimiter = 10
+
+[color]
+gradient = 1
+gradient_count = 8
+gradient_color_1 = '#04000D'
+gradient_color_2 = '#463455'
+gradient_color_3 = '#765670'
+gradient_color_4 = '#7D5C76'
+gradient_color_5 = '#E2D1EB'
+gradient_color_6 = '#A37799'
+gradient_color_7 = '#A67B9E'
+gradient_color_8 = '#E2D1EB'
+
+[smoothing]
+noise_reduction = 77

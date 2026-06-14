@@ -1,0 +1,203 @@
+@import "/home/acacio/.config/waybar/wallust/colors-waybar.css";
+
+/* ══════════════════════════════════════════════════
+ *   WALLUST DYNAMIC COLORS
+ *   ══════════════════════════════════════════════════ */
+* {
+    margin: 1px;
+    padding: 0px;
+    border: none;
+    font-family: "JetBrains Nerd Font", monospace;
+    font-size: 12px;
+    min-height: 0;
+}
+
+/* ── MAIN BAR ─────────────────────────────────── */
+window#waybar {
+    background: transparent;
+    color: @foreground;
+}
+
+/* ── TOOLTIP ──────────────────────────────────── */
+tooltip {
+    background: @background;
+    border: 0px solid @color8;
+    border-radius: 100px;
+}
+tooltip label {
+    color: @foreground;
+    padding: 4px 8px;
+}
+
+/* ── WORKSPACES CONTAINER ─────────────────────── */
+#workspaces {
+    background: @background;
+    border: 0px solid @color8;
+    border-radius: 17px;
+    padding: 1px 40px;
+    margin: 4px 4px;
+}
+
+/* ── WORKSPACES BUTTON ─────────────────────────── */
+#workspaces button {
+    padding: 4px;
+    margin: 4px 3px;
+    background-color: @color8;
+    color: transparent;
+    border-radius: 45%;
+    min-width: 20px;
+    min-height: 20px;
+    min-height: 8px;
+    font-size: 0px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    background: @foreground;
+    color: @background;
+    border-radius: 20px;
+    padding: 4px 16px;
+    min-width: 40px;
+    font-size: 11px;
+}
+
+#workspaces button:hover {
+    background: @color8;
+    border-radius: 20px;
+    min-width: 20px;
+}
+
+#workspaces button.urgent {
+    background: @color1;
+    color: @foreground;
+}
+
+/* ── ALL MODULES ──────────────────────────────── */
+#clock,
+#pulseaudio,
+#backlight,
+#custom-swaync,
+#tray,
+#custom-nix,
+#network,
+#bluetooth,
+#battery {
+background: @background;
+color: @foreground;
+border: 0px solid @color8;
+border-radius: 19px;
+padding: 10px 20px;
+margin: 4px 2px;
+transition: all 0.2s ease;
+}
+
+/* Hover all modules */
+#clock:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#custom-swaync:hover,
+#custom-nix:hover,
+#custom-bluetooth:hover,
+#network:hover {
+    background: @foreground;
+    color: @background;
+}
+
+/* Status WIFI */
+#network.wifi {
+    color: @color6;
+}
+
+/* Status Ethernet */
+#network.ethernet {
+    color: @color2;
+}
+
+/* Status Disconnected */
+#network.disconnected {
+    color: @color1;
+}
+
+/* ── CAVA ─────────────────────────────────────── */
+#custom-cava {
+    color: transparent;
+    background: transparent;
+    border: none;
+    padding: 4px 12px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin: 4px 2px;
+}
+
+#custom-cava.active {
+    color: @color4;
+    background: @background;
+    border: 0px solid @color8;
+    border-radius: 19px;
+}
+
+#custom-cava.silent {
+    color: transparent;
+    background: transparent;
+    border: none;
+}
+
+/* ── TRAY ─────────────────────────────────────── */
+#tray {
+    padding: 6px 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+/* ── BATTERY ──────────────────────────────────── */
+#battery {
+    background: @foreground;
+    color: @background;        /* teks gelap, kontras di atas putih */
+    border: 0px solid @color6;
+    border-radius: 19px;
+    padding: 10px 20px;
+    margin: 4px 2px;
+    transition: all 0.2s ease;
+}
+
+#battery.charging {
+    color: @color2;            /* hijau saat charging */
+}
+
+#battery.warning:not(.charging) {
+    color: @color8;
+}
+
+#battery.critical:not(.charging) {
+    color: @color8;
+    animation: blink 0.6s linear infinite alternate;
+}
+
+/* ── MODUL LAINNYA ────────────────────────────── */
+#bluetooth { color: @color4; }
+#cpu       { color: @color2; }
+#memory    { color: @color6; }
+#pulseaudio.muted { color: @color8; }
+
+/* ── WINDOW MODULE ────────────────────────────── */
+#window,
+window#waybar.empty #window,
+window#waybar.solo #window,
+window#waybar.floating #window,
+window#waybar.fullscreen #window {
+    border: none;
+    background: transparent;
+}
+
+#window {
+    color: @color8;
+    font-size: 11px;
+}
+
+/* ── BLINK ANIMATION ──────────────────────────── */
+@keyframes blink {
+    to { opacity: 0.35; }
+}

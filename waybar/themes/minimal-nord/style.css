@@ -1,0 +1,190 @@
+@import "/home/acacio/.config/waybar/wallust/colors-waybar.css";
+
+/* ══════════════════════════════════════════════════
+ *   MINIMAL NORD SLATE DESIGN SYSTEM
+ *   ══════════════════════════════════════════════════ */
+* {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    font-family: "JetBrains Nerd Font", monospace;
+    font-size: 12px;
+    font-weight: 600;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #d8dee9;
+}
+
+tooltip {
+    background: #2e3440;
+    border: 1px solid #3b4252;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+tooltip label {
+    color: #e5e9f0;
+    padding: 6px 10px;
+}
+
+/* ── WORKSPACES ───────────────────────────────── */
+#workspaces {
+    background: #2e3440;
+    border-radius: 20px;
+    padding: 2px 8px;
+    margin: 4px 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#workspaces button {
+    padding: 0;
+    margin: 4px 4px;
+    background-color: rgba(229, 233, 240, 0.25);
+    color: transparent;
+    border-radius: 50%;
+    min-width: 8px;
+    min-height: 8px;
+    font-size: 0px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#workspaces button.active {
+    background-color: #88c0d0;
+    border-radius: 8px;
+    min-width: 22px;
+    min-height: 8px;
+}
+
+#workspaces button.focused {
+    background-color: #81a1c1;
+    border-radius: 8px;
+    min-width: 16px;
+}
+
+#workspaces button:hover {
+    background-color: #e5e9f0;
+}
+
+#workspaces button.urgent {
+    background-color: #bf616a;
+}
+
+/* ── MODULES ──────────────────────────────────── */
+#clock,
+#pulseaudio,
+#backlight,
+#custom-swaync,
+#tray,
+#custom-nix,
+#network,
+#bluetooth,
+#battery {
+    background: #2e3440;
+    color: #eceff4;
+    border-radius: 12px;
+    padding: 4px 14px;
+    margin: 4px 3px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+/* Nord palette highlights */
+#custom-nix {
+    color: #88c0d0;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#clock {
+    color: #eceff4;
+}
+
+#network {
+    color: #a3be8c;
+}
+
+#bluetooth {
+    color: #81a1c1;
+}
+
+#battery {
+    color: #ebcb8b;
+}
+
+#battery.charging {
+    color: #a3be8c;
+}
+
+#battery.critical:not(.charging) {
+    color: #bf616a;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+#pulseaudio {
+    color: #81a1c1;
+}
+
+#pulseaudio.muted {
+    color: #4c566a;
+}
+
+#backlight {
+    color: #ebcb8b;
+}
+
+#custom-swaync {
+    color: #88c0d0;
+}
+
+/* ── CAVA ─────────────────────────────────────── */
+#custom-cava {
+    color: #88c0d0;
+    background: transparent;
+    border: none;
+    padding: 4px 12px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin: 4px 2px;
+}
+
+#custom-cava.active {
+    color: #88c0d0;
+    background: #2e3440;
+    border-radius: 12px;
+}
+
+/* ── WINDOW ───────────────────────────────────── */
+#window {
+    color: #81a1c1;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    font-size: 11px;
+}
+
+/* ── HOVER ACTIONS ────────────────────────────── */
+#clock:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#custom-swaync:hover,
+#custom-nix:hover,
+#network:hover,
+#bluetooth:hover,
+#battery:hover {
+    background: #3b4252;
+    color: #88c0d0;
+}
+
+#custom-nix:hover {
+    color: #eceff4;
+}
+
+@keyframes blink {
+    to {
+        background-color: rgba(191, 97, 106, 0.2);
+        color: #bf616a;
+    }
+}
