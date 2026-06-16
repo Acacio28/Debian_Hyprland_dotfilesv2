@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌙 Akashio's Debian-Hyprland Dotfiles 🌙
+# 🌙 Akashio's Debian-Hyprland Dotfiles 🐧
 
 #### For Debian 13 (Trixie) and above — Hyprland v0.55.2
 
