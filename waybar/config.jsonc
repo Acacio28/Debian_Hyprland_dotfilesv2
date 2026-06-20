@@ -71,7 +71,7 @@
     "clock": {
         "format": "{:%H:%M}  ",
         "format-alt": "{:%A, %B %d, %Y (%R)}  ",
-        "tooltip-format": "<b>{:%A, %B %d %Y}</b>\n\n{calendar}",
+        "tooltip-format": "<big><b>{:%B %Y}</b></big>\n\n{calendar}",
         "calendar": {
             "mode": "month",
             "mode-mon-col": 1,
@@ -81,14 +81,15 @@
                 "months":   "<span color='@color12'><b>{}</b></span>",
                 "days":     "<span color='@foreground'>{}</span>",
                 "weeks":    "<span color='@color8'><b>W{}</b></span>",
-                "weekdays": "<span color='@color11'><b>{}</b></span>",
-                "today":    "<span color='@foreground'><b><u>{}</u></b></span>"
+                "weekdays": "<span color='@color12'><b>{}</b></span>",
+                "today":    "<span color='@color1'><b><u>{}</u></b></span>"
             }
         },
         "actions": {
             "on-click-right": "mode",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
+            "on-click-middle": "shift_reset",
+            "on-scroll-up": "shift_down",
+            "on-scroll-down": "shift_up"
         }
     },
 

@@ -1,4 +1,4 @@
-@import "wallust/colors-waybar.css";
+@import "/home/acacio/.config/waybar/wallust/colors-waybar.css";
 
 /* ══════════════════════════════════════════════════
  *   WALLUST DYNAMIC COLORS
@@ -22,8 +22,8 @@ window#waybar {
 tooltip {
     background: @background;
     border: 1px solid @color8;
-    border-radius: 12px;
-    padding: 8px;
+    border-radius: 16px;
+    padding: 12px;
 }
 tooltip label {
     color: @foreground;
@@ -31,24 +31,29 @@ tooltip label {
 }
 
 #clock calendar {
-    background: @background;
+    background: transparent;
     color: @foreground;
     border: none;
-    padding: 8px;
+    padding: 4px;
+    font-size: 13px;
 }
 #clock calendar:selected {
-    color: @foreground;
-    background: @color8;
-    border-radius: 4px;
+    color: @background;
+    background: @color12;
+    border-radius: 100px;
 }
 #clock calendar.header {
     color: @color12;
-    font-weight: bold;
     border: none;
 }
 #clock calendar.button {
-    color: @color11;
-    border-radius: 4px;
+    color: @color12;
+    border-radius: 100px;
+    min-width: 28px;
+    min-height: 24px;
+}
+#clock calendar.button:hover {
+    background: @color8;
 }
 #clock calendar.highlight {
     color: @color11;
