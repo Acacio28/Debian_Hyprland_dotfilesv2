@@ -1,3 +1,4 @@
+# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 #!/bin/bash
 
 # Kill existing cava processes

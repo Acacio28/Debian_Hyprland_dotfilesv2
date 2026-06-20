@@ -1,3 +1,4 @@
+# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 #!/usr/bin/env bash
 # Script parses /proc/uptime to get the system uptime
 # and prints it in a human-readable format

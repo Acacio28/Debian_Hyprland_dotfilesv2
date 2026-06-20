@@ -1,3 +1,4 @@
+# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 #!/bin/bash
 
 wifi_status=$(nmcli -t -f WIFI g)

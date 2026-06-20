@@ -1,3 +1,4 @@
+# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 #!/usr/bin/env bash
 
 # === Configuration ===

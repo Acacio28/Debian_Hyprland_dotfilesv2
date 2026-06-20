@@ -1,3 +1,4 @@
+# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 #!/bin/bash
 SSID="$1"
 STATUS="$2"

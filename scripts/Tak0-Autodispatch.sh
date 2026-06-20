@@ -1,3 +1,4 @@
+# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 #!/bin/bash
 # USAGE / ІНСТРУКЦІЯ:
 # 1) Run from terminal:
