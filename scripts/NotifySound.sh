@@ -1,5 +1,5 @@
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 #!/usr/bin/env bash
+# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 dbus-monitor "interface='org.freedesktop.Notifications',member='Notify'" |
 while read -r line; do
     if echo "$line" | grep -q "member=Notify"; then

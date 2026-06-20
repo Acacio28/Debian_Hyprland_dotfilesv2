@@ -1,5 +1,5 @@
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 #!/bin/bash
+# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 # USAGE / ІНСТРУКЦІЯ:
 # 1) Run from terminal:
 #    ./dispatch.sh <application_command> <target_workspace_number>

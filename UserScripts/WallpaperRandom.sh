@@ -1,5 +1,5 @@
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 #!/usr/bin/env bash
+# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 
 # === Configuration ===
 WALLPAPER_DIR="$HOME/Pictures/wallpapers"

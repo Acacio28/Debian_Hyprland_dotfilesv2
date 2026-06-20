@@ -1,5 +1,5 @@
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 #!/bin/bash
+# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 # ~/.config/hypr/scripts/menu-simple.sh
 
 # Style untuk rofi

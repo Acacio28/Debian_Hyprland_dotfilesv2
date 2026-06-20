@@ -1,5 +1,5 @@
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 #!/bin/bash
+# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
 # Simple refresh script for waybar
 
 # Kill waybar dengan paksa
