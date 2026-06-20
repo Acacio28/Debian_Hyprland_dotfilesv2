@@ -1,5 +1,5 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
+# /* ---- 💫 https://github.com/Akashio28 💫 ---- */  ##
 # Simple bash script to check and will try to update your system
 
 # Local Paths

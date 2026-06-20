@@ -37,7 +37,7 @@
 
 - **Compositor**: Hyprland `v0.55.2`
 - **Distro**: Debian (apt-based, Debian 13 "Trixie" or later recommended)
-- **Config base**: [JaKooLit Hyprland-Dots](https://github.com/JaKooLit), modified & adapted by [@Akashio28](https://github.com/Akashio28)
+- **Config base**: [Akashio28 Hyprland-Dots](https://github.com/Akashio28), modified & adapted by [@Akashio28](https://github.com/Akashio28)
 - **Config language**: Hyprlang (`.conf`)
 - **Plugins**: `hyprgrass`, `hyprexpo+` (via `hyprpm`)
 
@@ -108,7 +108,7 @@
 ├── hyprlock.conf            # Lockscreen config
 │
 ├── configs/
-│   └── Keybinds.conf        # JaKooLit default keybinds (avoid heavy edits)
+│   └── Keybinds.conf        # Akashio28 default keybinds (avoid heavy edits)
 │
 ├── UserConfigs/             # ⭐ Main place for customization
 │   ├── UserKeybinds.conf     # Personal custom keybinds
@@ -249,7 +249,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for the full history.
 #### 👍👍👍 Thanks and Credits
 
 - [`Hyprland`](https://hyprland.org/) and [@vaxerski](https://github.com/vaxerski) for this awesome dynamic tiling Wayland compositor
-- [`JaKooLit`](https://github.com/JaKooLit) for the original Hyprland-Dots this configuration is based on
+- [`Akashio28`](https://github.com/Akashio28) for the original Hyprland-Dots this configuration is based on
 - [`horriblename/hyprgrass`](https://github.com/horriblename/hyprgrass) and [`sandwichfarm/hyprexpo`](https://github.com/sandwichfarm/hyprexpo) for the plugins
 - Wallpaper/illustration credits as noted in `assets/`
 
@@ -264,4 +264,4 @@ See [`CHANGELOG.md`](CHANGELOG.md) for the full history.
 
 ## 📄 License
 
-No license specified. Feel free to use this configuration as a reference, but please credit the original [JaKooLit Hyprland-Dots](https://github.com/JaKooLit) project this is based on.
+No license specified. Feel free to use this configuration as a reference, but please credit the original [Akashio28 Hyprland-Dots](https://github.com/Akashio28) project this is based on.
