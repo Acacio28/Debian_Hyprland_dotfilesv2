@@ -71,18 +71,18 @@
     "clock": {
         "format": "{:%H:%M}  ",
         "format-alt": "{:%A, %B %d, %Y (%R)}  ",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<big><b>{:%A, %B %d %Y}</b></big>\n<hr/>\n{calendar}\n<hr/>\n<i>{calendar:wtab}</i>",
         "calendar": {
-            "mode": "year",
-            "mode-mon-col": 3,
+            "mode": "month",
+            "mode-mon-col": 1,
             "weeks-pos": "right",
             "on-scroll": 1,
             "format": {
-                "months":   "<span color='#ffead3'><b>{}</b></span>",
-                "days":     "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks":    "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-                "today":    "<span color='#ff6699'><b><u>{}</u></b></span>"
+                "months":   "<span color='@color12'><b>{}</b></span>",
+                "days":     "<span color='@foreground'>{}</span>",
+                "weeks":    "<span color='@color8'><b>W{}</b></span>",
+                "weekdays": "<span color='@color11'><b>{}</b></span>",
+                "today":    "<span color='@foreground'><b><u>{}</u></b></span>"
             }
         },
         "actions": {

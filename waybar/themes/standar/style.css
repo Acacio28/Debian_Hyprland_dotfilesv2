@@ -21,12 +21,40 @@ window#waybar {
 /* ── TOOLTIP ──────────────────────────────────── */
 tooltip {
     background: @background;
-    border: 0px solid @color8;
-    border-radius: 100px;
+    border: 1px solid @color8;
+    border-radius: 12px;
+    padding: 8px;
 }
 tooltip label {
     color: @foreground;
     padding: 4px 8px;
+}
+
+#clock calendar {
+    background: @background;
+    color: @foreground;
+    border: none;
+    padding: 8px;
+}
+#clock calendar:selected {
+    color: @foreground;
+    background: @color8;
+    border-radius: 4px;
+}
+#clock calendar.header {
+    color: @color12;
+    font-weight: bold;
+    border: none;
+}
+#clock calendar.button {
+    color: @color11;
+    border-radius: 4px;
+}
+#clock calendar.highlight {
+    color: @color11;
+}
+#clock calendar:indeterminate {
+    color: @color8;
 }
 
 /* ── WORKSPACES CONTAINER ─────────────────────── */
