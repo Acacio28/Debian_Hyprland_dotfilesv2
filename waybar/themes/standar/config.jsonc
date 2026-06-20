@@ -71,7 +71,7 @@
     "clock": {
         "format": "{:%H:%M}  ",
         "format-alt": "{:%A, %B %d, %Y (%R)}  ",
-        "tooltip-format": "<big><b>{:%A, %B %d %Y}</b></big>\n<hr/>\n{calendar}\n<hr/>\n<i>{calendar:wtab}</i>",
+        "tooltip-format": "<b>{:%A, %B %d %Y}</b>\n\n{calendar}",
         "calendar": {
             "mode": "month",
             "mode-mon-col": 1,
