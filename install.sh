@@ -61,22 +61,23 @@ LOG="Install-Logs/install-$(date +%d-%H%M%S).log"
 echo "${INFO} Log: $LOG"
 printf "\n"
 
-echo "${INFO} Updating system..." | tee -a "$LOG"
-sudo apt update && sudo apt upgrade -y 2>&1 | tee -a "$LOG"
-echo "${OK} System updated." | tee -a "$LOG"
+echo "${INFO} Updating package lists..." | tee -a "$LOG"
+sudo apt update 2>&1 | tee -a "$LOG"
+echo "${OK} Package lists updated." | tee -a "$LOG"
 printf "\n"
 
 echo "${INFO} Installing packages..." | tee -a "$LOG"
-PACKAGES=(hyprland hyprlock hypridle waybar rofi swaync kitty thunar swww
-    fonts-noto fonts-noto-color-emoji fonts-jetbrains-mono
+PACKAGES=(hyprland hyprlock hypridle waybar rofi swaync kitty nautilus swww
+    fonts-noto fonts-noto-color-emoji fonts-jetbrains-mono fonts-firacode
     wlogout wofi tofi btop cava fastfetch grim slurp swappy
-    wl-clipboard cliphist brightnessctl pamixer playerctl
-    network-manager nm-applet blueman polkit-kde-agent-1
-    xdg-desktop-portal-hyprland xdg-utils qt5ct qt6ct nwg-look wallust)
+    wl-clipboard cliphist brightnessctl pamixer playerctl pavucontrol
+    network-manager nm-applet blueman polkit-kde-agent-1 jq imagemagick
+    xdg-desktop-portal-hyprland xdg-utils qt5ct qt6ct nwg-look wallust
+    python3-requests hyprsunset)
 
 for pkg in "${PACKAGES[@]}"; do
     if ! dpkg -l | grep -q "^ii.*$pkg"; then
-        sudo apt install -y "$pkg" 2>&1 | tee -a "$LOG" || echo "${WARN} Failed: $pkg" | tee -a "$LOG"
+        sudo apt install -y --no-install-recommends "$pkg" 2>&1 | tee -a "$LOG" || echo "${WARN} Failed: $pkg" | tee -a "$LOG"
     else
         echo "${OK} $pkg already installed." | tee -a "$LOG"
     fi
@@ -135,6 +136,6 @@ printf "\n"
 
 read -rp "${CAT} Reboot now? [y/N]: " rb
 case "$rb" in
-    [yY][eE][sS]|[yY]) systemctl reboot ;;
+    [yY][eE][sS]|[yY]) sudo systemctl reboot ;;
     *) echo "${OK} Done! Reboot manually when ready." ;;
 esac
