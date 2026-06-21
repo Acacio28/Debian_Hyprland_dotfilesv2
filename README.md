@@ -5,7 +5,7 @@
 #### For Debian 13 (Trixie) and above — Hyprland v0.55.2
 
 <p align="center">
-  <img src="screenshots/home.png" width="600" />
+  <img src="screenshots/debian.png" width="600" />
 </p>
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/Akashio28/Debian_Hyprland_dotfilesv2?style=for-the-badge&color=cba6f7) ![GitHub last commit](https://img.shields.io/github/last-commit/Akashio28/Debian_Hyprland_dotfilesv2?style=for-the-badge&color=b4befe) ![GitHub repo size](https://img.shields.io/github/repo-size/Akashio28/Debian_Hyprland_dotfilesv2?style=for-the-badge&color=cba6f7)
