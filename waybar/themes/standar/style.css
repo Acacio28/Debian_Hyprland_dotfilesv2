@@ -20,10 +20,10 @@ window#waybar {
 
 /* ── TOOLTIP ──────────────────────────────────── */
 tooltip {
-    background: @background;
-    border: 1px solid @color8;
-    border-radius: 12px;
-    padding: 8px;
+    background: #222222;
+    border: 2px solid @color11;
+    border-radius: 16px;
+    padding: 12px;
 }
 tooltip label {
     color: @foreground;
@@ -31,24 +31,27 @@ tooltip label {
 }
 
 #clock calendar {
-    background: @background;
+    background: #222222;
     color: @foreground;
     border: none;
     padding: 8px;
 }
 #clock calendar:selected {
-    color: @foreground;
-    background: @color8;
-    border-radius: 4px;
+    color: #222222;
+    background: @foreground;
+    border-radius: 100px;
 }
 #clock calendar.header {
-    color: @color12;
+    color: @color11;
     font-weight: bold;
     border: none;
 }
 #clock calendar.button {
-    color: @color11;
-    border-radius: 4px;
+    color: @color12;
+    border-radius: 100px;
+}
+#clock calendar.button:hover {
+    background: @color8;
 }
 #clock calendar.highlight {
     color: @color11;
