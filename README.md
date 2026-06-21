@@ -28,7 +28,7 @@
  </div><br>
 
 <p align="center">
-  <img src="screenshots/02-desktop-sunset.png" width="500" />
+  <img src="screenshots/home.png" width="500" />
 </p>
 
 ---
