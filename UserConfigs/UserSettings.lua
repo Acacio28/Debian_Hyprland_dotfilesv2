@@ -74,22 +74,6 @@ hl.config({
         warp_on_change_workspace = 2,
         no_warps                 = true,
     },
-    plugin = {
-        hyprexpo = {
-            columns           = 3,
-            gaps_in           = 5,
-            gaps_out          = 0,
-            bg_col            = "rgb(111111)",
-            workspace_method  = "center current",
-            gesture_distance  = 200,
-            cancel_key        = "escape",
-            show_cursor       = 1,
-        },
-        touch_gestures = {
-            sensitivity           = 1.0,
-            workspace_swipe_fingers = 3,
-        },
-    },
 })
 
 hl.gesture({

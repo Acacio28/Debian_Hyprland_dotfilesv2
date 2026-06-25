@@ -59,8 +59,8 @@ hl.bind(mainMod .. " + CTRL + F12", hl.dsp.workspace.move({ monitor = "d" }))
 
 hl.bind("SUPER + A", hl.dsp.exec_cmd("hyprctl dispatch hyprexpo:expo toggle"))
 
--- hyprgrass 3-finger swipe gestures (runtime keyword injection for exact parity)
+-- hyprgrass 3-finger swipe gestures (set after plugin loads)
 hl.on("hyprland.start", function()
-    hl.exec_cmd('hyprctl keyword hyprgrass-bind ", swipe:3:r, workspace, +1"')
-    hl.exec_cmd('hyprctl keyword hyprgrass-bind ", swipe:3:l, workspace, -1"')
+    hl.exec_cmd('hyprctl keyword plugin:hyprgrass:hyprgrass-bind ", swipe:3:r, workspace, +1"')
+    hl.exec_cmd('hyprctl keyword plugin:hyprgrass:hyprgrass-bind ", swipe:3:l, workspace, -1"')
 end)

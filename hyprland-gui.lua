@@ -8,8 +8,8 @@ hl.config({
         allow_tearing    = false,
         border_size      = 2,
         col = {
-            active_border   = "0xff613583 0deg",
-            inactive_border = "0xffc0bfbc 0deg",
+            active_border   = "0xff613583",
+            inactive_border = "0xffc0bfbc",
         },
         layout = "dwindle",
     },

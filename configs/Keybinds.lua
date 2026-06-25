@@ -4,7 +4,7 @@ UserConfigs = os.getenv("HOME") .. "/.config/hypr/UserConfigs"
 UserScripts = os.getenv("HOME") .. "/.config/hypr/UserScripts"
 
 hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd("hyprctl dispatch exit 0"))
-hl.bind(mainMod .. " + Q", hl.dsp.killactive())
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(scriptsDir .. "/KillActiveProcess.sh"))
 hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd(scriptsDir .. "/LockScreen.sh"))
 hl.bind("CTRL + ALT + P", hl.dsp.exec_cmd(scriptsDir .. "/Wlogout.sh"))
@@ -23,11 +23,13 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("hyprctl dispatch splitratio 0.3"))
 
-hl.bind(mainMod .. " + G", hl.dsp.window.group("toggle"))
-hl.bind(mainMod .. " + CTRL + tab", hl.dsp.window.group("change_active"))
+hl.bind(mainMod .. " + G", hl.dsp.group.toggle())
+hl.bind(mainMod .. " + CTRL + tab", hl.dsp.group.next())
 
-hl.bind("ALT + tab", hl.dsp.focus({ direction = "next" }))
-hl.bind("ALT + tab", hl.dsp.window.bring_to_top())
+hl.bind("ALT + tab", function()
+    hl.dispatch(hl.dsp.window.cycle_next())
+    hl.dispatch(hl.dsp.window.bring_to_top())
+end)
 
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(scriptsDir .. "/Volume.sh --inc"), { repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(scriptsDir .. "/Volume.sh --dec"), { repeating = true })
@@ -36,7 +38,7 @@ hl.bind("XF86AudioMute",        hl.dsp.exec_cmd(scriptsDir .. "/Volume.sh --togg
 hl.bind("XF86Sleep",            hl.dsp.exec_cmd("systemctl suspend"), { locked = true })
 hl.bind("XF86Rfkill",           hl.dsp.exec_cmd(scriptsDir .. "/AirplaneMode.sh"), { locked = true })
 
-hl.bind("XF86AudioPlayPause", hl.dsp.exec_cmd(scriptsDir .. "/MediaCtrl.sh --pause"), { locked = true })
+-- hl.bind("XF86AudioPlayPause", hl.dsp.exec_cmd(scriptsDir .. "/MediaCtrl.sh --pause"), { locked = true })
 hl.bind("XF86AudioPause",     hl.dsp.exec_cmd(scriptsDir .. "/MediaCtrl.sh --pause"), { locked = true })
 hl.bind("XF86AudioPlay",      hl.dsp.exec_cmd(scriptsDir .. "/MediaCtrl.sh --pause"), { locked = true })
 hl.bind("XF86AudioNext",      hl.dsp.exec_cmd(scriptsDir .. "/MediaCtrl.sh --nxt"), { locked = true })
@@ -51,10 +53,10 @@ hl.bind("ALT + Print",                   hl.dsp.exec_cmd(scriptsDir .. "/ScreenS
 
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(scriptsDir .. "/ScreenShot.sh --swappy"))
 
-hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.resize({ width = -50, height = 0 }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.resize({ width = 50, height = 0 }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.resize({ width = 0, height = -50 }), { repeating = true })
-hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.resize({ width = 0, height = 50 }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.resize({ x = -50, y = 0 }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.resize({ x = 50, y = 0 }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.resize({ x = 0, y = -50 }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.resize({ x = 0, y = 50 }), { repeating = true })
 
 hl.bind(mainMod .. " + CTRL + left",  hl.dsp.window.move({ direction = "l" }))
 hl.bind(mainMod .. " + CTRL + right", hl.dsp.window.move({ direction = "r" }))
