@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # /* ---- 💫 https://github.com/Akashio28 💫 ---- */
-# Akashio's Debian Hyprland Dotfiles v2 - Install Script
+# Akashio's Debian Hyprland Dotfiles v2 - Install Script (Lua config)
 
 clear
 
@@ -27,7 +27,7 @@ cat << "EOF"
  / ___ |/ ,< / /_/ (__  ) / / / / /_/ / __// /_/ / 
 /_/  |_/_/|_|\__,_/____/_/ /_/_/\____/____/\____/  
 
-  Debian Hyprland Dotfiles v2
+  Debian Hyprland Dotfiles v2 (Lua)
   https://github.com/Akashio28/Debian_Hyprland_dotfilesv2
 EOF
 echo -e "\e[0m"
@@ -45,10 +45,12 @@ fi
 
 echo "${NOTE} This script will:"
 echo "  1. Update your system"
-echo "  2. Install Hyprland & all required packages"
-echo "  3. Backup existing configs"
-echo "  4. Copy dotfiles to ~/.config"
-echo "  5. Setup hyprpm plugins"
+echo "  2. Install build dependencies for Hyprland"
+echo "  3. Build & install Hyprland v0.55.4+ from source (Lua support)"
+echo "  4. Install Wayland/app packages (waybar, rofi, etc.)"
+echo "  5. Backup existing configs"
+echo "  6. Copy dotfiles to ~/.config"
+echo "  7. Setup hyprpm plugins"
 printf "\n"
 read -rp "${CAT} Continue? [y/N]: " confirm
 case "$confirm" in
@@ -66,8 +68,38 @@ sudo apt update 2>&1 | tee -a "$LOG"
 echo "${OK} Package lists updated." | tee -a "$LOG"
 printf "\n"
 
-echo "${INFO} Installing packages..." | tee -a "$LOG"
-PACKAGES=(hyprland hyprlock hypridle waybar rofi swaync kitty nautilus swww
+# ---- Build dependencies for Hyprland ----
+echo "${INFO} Installing build dependencies..." | tee -a "$LOG"
+BUILD_DEPS=(git meson cmake ninja-build g++ pkg-config
+    libwayland-dev libxkbcommon-dev libcairo2-dev libpango1.0-dev
+    libglib2.0-dev libdrm-dev libgbm-dev libinput-dev libudev-dev
+    libxcb1-dev libxcb-dri3-dev libxcb-present-dev libxcb-composite0-dev
+    libxcb-ewmh-dev libxcb-icccm4-dev libxcb-render-util0-dev
+    libxcb-res0-dev libxcb-xinput-dev libxcb-xfixes0-dev libxcb-shape0-dev
+    libxcb-randr0-dev libhyprutils-dev)
+
+for pkg in "${BUILD_DEPS[@]}"; do
+    if ! dpkg -l | grep -q "^ii.*$pkg"; then
+        sudo apt install -y --no-install-recommends "$pkg" 2>&1 | tee -a "$LOG" || echo "${WARN} Failed: $pkg" | tee -a "$LOG"
+    else
+        echo "${OK} $pkg already installed." | tee -a "$LOG"
+    fi
+done
+printf "\n"
+
+# ---- Build & install Hyprland from source ----
+echo "${INFO} Building Hyprland v0.55.4+ from source..." | tee -a "$LOG"
+if [ ! -d "/tmp/Hyprland" ]; then
+    git clone --recursive -b v0.55.4 https://github.com/hyprwm/Hyprland /tmp/Hyprland 2>&1 | tee -a "$LOG"
+fi
+cd /tmp/Hyprland
+make all 2>&1 | tee -a "$LOG" && sudo make install 2>&1 | tee -a "$LOG"
+echo "${OK} Hyprland built & installed." | tee -a "$LOG"
+printf "\n"
+
+# ---- Wayland/app packages ----
+echo "${INFO} Installing Wayland/app packages..." | tee -a "$LOG"
+PACKAGES=(hyprlock hypridle waybar rofi swaync kitty nautilus swww
     fonts-noto fonts-noto-color-emoji fonts-jetbrains-mono fonts-firacode
     wlogout wofi tofi btop cava fastfetch grim slurp swappy
     wl-clipboard cliphist brightnessctl pamixer playerctl pavucontrol

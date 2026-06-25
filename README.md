@@ -35,10 +35,10 @@
 
 ## 📋 Specs
 
-- **Compositor**: Hyprland `v0.55.2`
+- **Compositor**: Hyprland `v0.55.4` (built from source with Lua patches)
 - **Distro**: Debian (apt-based, Debian 13 "Trixie" or later recommended)
 - **Config base**: [Akashio28 Hyprland-Dots](https://github.com/Akashio28), modified & adapted by [@Akashio28](https://github.com/Akashio28)
-- **Config language**: Hyprlang (`.conf`)
+- **Config language**: Lua (`.lua`) — migrated from Hyprlang (`.conf`)
 - **Plugins**: `hyprgrass`, `hyprexpo+` (via `hyprpm`)
 
 ---
@@ -47,7 +47,9 @@
 
 [Full Changelog](CHANGELOG.md)
 
-- **2026** — Migrated config to Hyprland `v0.55.2`
+- **2026** — Migrated config to Hyprland `v0.55.4` with native Lua config
+    - Migrated from Hyprlang (`.conf`) to Lua (`.lua`) — see `hyprland.lua`
+    - Patched Hyprland source: dispatch fallback + global plugin keywords for Lua mode
     - Fixed `togglesplit` dispatcher (now `layoutmsg, togglesplit`)
     - Removed deprecated `dwindle:pseudotile` and `misc:vfr`
     - Replaced retired official `hyprexpo` plugin with the community fork [`sandwichfarm/hyprexpo`](https://github.com/sandwichfarm/hyprexpo) ("hyprexpo+")
@@ -100,31 +102,29 @@
 
 ```
 ~/.config/hypr/
-├── hyprland.conf          # Entry point, sources all other configs
-├── hyprland-gui.conf       # Settings from HyprMod (GUI tool)
-├── monitors.conf           # Monitor configuration (nwg-displays)
-├── workspaces.conf         # Workspace rules
-├── hypridle.conf            # Idle daemon config
-├── hyprlock.conf            # Lockscreen config
-│
-├── configs/
-│   └── Keybinds.conf        # Akashio28 default keybinds (avoid heavy edits)
+├── hyprland.lua            # Entry point (Lua) — loads UserConfigs/*.lua
+├── hyprland.conf            # Stub for Python libraries (HyprMod)
+├── hyprland-gui.lua         # Settings from HyprMod (GUI tool)
+├── monitors.lua             # Monitor configuration
+├── workspaces.lua           # Workspace rules
+├── hypridle.conf            # Idle daemon config (standalone, Hyprlang)
+├── hyprlock.conf            # Lockscreen config (standalone, Hyprlang)
 │
 ├── UserConfigs/             # ⭐ Main place for customization
-│   ├── UserKeybinds.conf     # Personal custom keybinds
-│   ├── UserSettings.conf     # Core settings (dwindle, decoration, plugins, etc.)
-│   ├── UserAnimations.conf
-│   ├── UserDecorations.conf
-│   ├── WindowRules.conf
-│   ├── Laptops.conf / LaptopDisplay.conf
-│   ├── Startup_Apps.conf     # exec-once for startup applications
-│   └── ENVariables.conf      # Environment variables
+│   ├── UserKeybinds.lua     # Personal custom keybinds
+│   ├── UserSettings.lua     # Core settings (dwindle, decoration, plugins, etc.)
+│   ├── UserAnimations.lua
+│   ├── UserDecorations.lua
+│   ├── WindowRules.lua
+│   ├── Laptops.lua / LaptopDisplay.lua
+│   ├── Startup_Apps.lua     # exec-once for startup applications
+│   └── ENVariables.lua      # Environment variables
 │
 ├── animations/              # Animation presets (ML4W, HyDE, etc.)
 ├── scripts/                 # Bash scripts for extra features (rofi, screenshot, etc.)
 ├── UserScripts/             # Additional custom scripts
-├── wallpaper_effects/        # Wallpaper effect cache
-└── wallust/                  # Theme/colorscheme generator output
+├── wallpaper_effects/       # Wallpaper effect cache
+└── wallust/                 # Theme/colorscheme generator output
 ```
 
 ---
@@ -233,8 +233,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for the full history.
 
 #### 🛣️ Roadmap
 
-- [ ] Consider migrating config to Lua (optional, hyprlang is still supported for the next several releases)
-- [ ] Clean up unused backup files (`*.bak`, `*-old.conf`)
+- [x] Migrate config to Lua (complete — `hyprland.lua` with native Lua API)
 - [ ] Add more wallpaper presets
 
 ---
