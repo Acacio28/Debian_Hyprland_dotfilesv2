@@ -2,7 +2,7 @@
 
 # 🌙 Akashio's Debian-Hyprland Dotfiles 🐧
 
-#### For Debian 13 (Trixie) and above — Hyprland v0.55.2
+#### For Debian 13 (Trixie) and above — Hyprland v0.55.4 (Lua config)
 
 <p align="center">
   <img src="screenshots/debian.png" width="600" />
@@ -89,11 +89,13 @@
 
 ## ✨ Features
 
-- Ready-to-use Hyprland config adapted for v0.55.2 (breaking changes already patched)
+- Ready-to-use Hyprland config with **native Lua** (`.lua`) — no `.conf` files
+- One-line installer — builds Hyprland from source automatically
 - Waybar, Rofi, SwayNC, Kitty, and wlogout pre-configured
 - Wallpaper management via `swww` + `wallust` color theming
 - Touchscreen/trackpad gesture support (`hyprgrass`)
 - Workspace overview via `hyprexpo+` (community-maintained fork)
+- **HyprMod** GUI for live settings management
 - Automatic config backup before installing — no overwriting your old setup blindly
 
 ---
@@ -185,31 +187,39 @@ hyprpm reload -n
 > [!CAUTION]
 > Do **NOT** run the install script as `root` or with `sudo`. Run it as a normal user with `sudo` privileges.
 
-Clone this repo, change directory, make executable and run the script:
+### Auto install (one-liner)
 
 ```bash
-git clone https://github.com/Akashio28/Debian_Hyprland_dotfilesv2.git ~/Debian_Hyprland_dotfilesv2
+sh <(curl -L https://raw.githubusercontent.com/Acacio28/Debian_Hyprland_dotfilesv2/main/auto-install.sh)
+```
+
+### Manual install
+
+```bash
+git clone https://github.com/Acacio28/Debian_Hyprland_dotfilesv2.git ~/Debian_Hyprland_dotfilesv2
 cd ~/Debian_Hyprland_dotfilesv2
 chmod +x install.sh
 ./install.sh
 ```
 
+### Preset install (pre-configured options)
+
+```bash
+./install.sh --preset preset.sh
+```
+
 #### ✨ What the script does
 
-1. Updates your package lists (`apt update`)
-2. Installs Hyprland and core dependencies via `apt`
-3. Installs `hyprpm` plugin build dependencies
-4. Backs up any existing `~/.config/hypr` and related app configs to `~/.config-backup-<timestamp>/`
-5. Copies the dotfiles into `~/.config`
-6. Installs and enables the `hyprgrass` and `hyprexpo+` plugins via `hyprpm`
+1. Installs build dependencies and builds Hyprland v0.55.4 from **source**
+2. Installs Wayland/app packages (waybar, rofi, kitty, etc.)
+3. Backs up existing configs and copies the dotfiles
+4. Installs and enables `hyprgrass`, `hyprexpo+`, `borders-plus-plus` via `hyprpm`
+5. Optional: NVIDIA, SDDM, GTK themes, Bluetooth, Zsh, HyprMod
 
 #### ✨ TO DO once installation is done
 
 - `SUPER + H` for the keybind cheat sheet
-- Reload Hyprland config with `hyprctl reload`
-- Reboot or log out, then select **Hyprland** from your display manager
-
-For more detailed steps, troubleshooting, and manual/partial installation, see [`INSTALL.md`](INSTALL.md).
+- Reboot your system, then select **Hyprland** from your display manager
 
 ---
 
