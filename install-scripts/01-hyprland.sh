@@ -9,7 +9,7 @@ if command -v Hyprland &>/dev/null; then
 fi
 
 if [ ! -d "/tmp/Hyprland" ]; then
-    git clone --recursive -b v0.55.4 https://github.com/hyprwm/Hyprland /tmp/Hyprland 2>&1 | tee -a "$LOG"
+    git clone --recursive -b main https://github.com/Acacio28/Hyprland /tmp/Hyprland 2>&1 | tee -a "$LOG"
 fi
 
 cd /tmp/Hyprland

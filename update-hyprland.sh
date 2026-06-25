@@ -14,11 +14,11 @@ LOG="update-$(date +%d-%H%M%S).log"
 echo "${INFO} Updating Hyprland..." | tee -a "$LOG"
 
 if [ ! -d "/tmp/Hyprland" ]; then
-    git clone --recursive -b v0.55.4 https://github.com/hyprwm/Hyprland /tmp/Hyprland 2>&1 | tee -a "$LOG"
+    git clone --recursive -b main https://github.com/Acacio28/Hyprland /tmp/Hyprland 2>&1 | tee -a "$LOG"
 else
     cd /tmp/Hyprland
-    git fetch --tags 2>&1 | tee -a "$LOG"
-    git checkout v0.55.4 2>&1 | tee -a "$LOG"
+    git fetch origin 2>&1 | tee -a "$LOG"
+    git checkout main 2>&1 | tee -a "$LOG"
     git submodule update --init --recursive 2>&1 | tee -a "$LOG"
 fi
 
