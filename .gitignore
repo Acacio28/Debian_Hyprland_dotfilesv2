@@ -3,7 +3,5 @@ wallpaper_effects/
 wallust/wallust-hyprland.conf
 wallust/wallust-hyprland.lua
 
-# Lua migration leftovers
-*.lua
-hyprland.conf.stub
-hyprland.lua.bak
+# Hyprland auto-generated stub (created when lua entry point is found)
+hyprland.conf

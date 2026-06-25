@@ -1,0 +1,26 @@
+-- Main entry point for Hyprland Lua config
+
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+
+hl.on("hyprland.start", function()
+    hl.exec_cmd(os.getenv("HOME") .. "/.config/hypr/initial-boot.sh")
+    hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
+    hl.exec_cmd(os.getenv("HOME") .. "/.config/hypr/UserScripts/WallpaperRandom.sh")
+    hl.exec_cmd("hyprpm reload -n")
+end)
+
+dofile(os.getenv("HOME") .. "/.config/hypr/configs/Keybinds.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/UserConfigs/Startup_Apps.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/UserConfigs/ENVariables.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/UserConfigs/Laptops.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/UserConfigs/LaptopDisplay.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/UserConfigs/WindowRules.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/UserConfigs/UserDecorations.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/UserConfigs/UserAnimations.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/UserConfigs/UserKeybinds.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/UserConfigs/UserSettings.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/UserConfigs/01-UserDefaults.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/monitors.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/workspaces.lua")
+dofile(os.getenv("HOME") .. "/.config/hypr/hyprland-gui.lua")
