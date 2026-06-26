@@ -1,3 +1,4 @@
+-- /* ---- 💫 https://github.com/Acacio28 ---- */
 dofile(os.getenv("HOME") .. "/.config/hypr/wallust/wallust-hyprland.lua")
 
 hl.config({

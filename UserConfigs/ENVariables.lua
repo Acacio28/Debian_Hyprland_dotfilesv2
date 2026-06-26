@@ -1,3 +1,4 @@
+-- /* ---- 💫 https://github.com/Acacio28 ---- */
 hl.env("GDK_BACKEND", "wayland,x11,*")
 hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("CLUTTER_BACKEND", "wayland")

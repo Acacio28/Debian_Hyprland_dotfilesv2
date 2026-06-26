@@ -1,3 +1,4 @@
+-- /* ---- 💫 https://github.com/Acacio28 ---- */
 -- Main entry point for Hyprland Lua config
 
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")

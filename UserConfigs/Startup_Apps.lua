@@ -1,3 +1,4 @@
+-- /* ---- 💫 https://github.com/Acacio28 ---- */
 local scriptsDir = os.getenv("HOME") .. "/.config/hypr/scripts"
 local UserScripts = os.getenv("HOME") .. "/.config/hypr/UserScripts"
 local wallDIR = os.getenv("HOME") .. "/Pictures/wallpapers"

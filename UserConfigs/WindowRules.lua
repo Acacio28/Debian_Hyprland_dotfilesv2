@@ -1,3 +1,4 @@
+-- /* ---- 💫 https://github.com/Acacio28 ---- */
 -- Window rules and layerrules
 -- See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 -- This file is used to add or overwrite window rules

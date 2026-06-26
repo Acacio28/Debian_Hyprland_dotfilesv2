@@ -1,3 +1,4 @@
+-- /* ---- 💫 https://github.com/Acacio28 ---- */
 mainMod = "SUPER"
 scriptsDir = os.getenv("HOME") .. "/.config/hypr/scripts"
 UserScripts = os.getenv("HOME") .. "/.config/hypr/UserScripts"

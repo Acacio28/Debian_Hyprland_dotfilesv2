@@ -1,3 +1,4 @@
+-- /* ---- 💫 https://github.com/Acacio28 ---- */
 edit = os.getenv("EDITOR") or "nano"
 term = "kitty -1"
 files = "nautilus"

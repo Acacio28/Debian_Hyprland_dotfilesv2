@@ -1,3 +1,4 @@
+-- /* ---- 💫 https://github.com/Acacio28 ---- */
 hl.monitor({
     output   = "eDP-1",
     mode     = "preferred",

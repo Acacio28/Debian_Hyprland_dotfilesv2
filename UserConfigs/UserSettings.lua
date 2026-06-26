@@ -1,3 +1,4 @@
+-- /* ---- 💫 https://github.com/Acacio28 ---- */
 hl.config({
     dwindle = {
         preserve_split      = true,
