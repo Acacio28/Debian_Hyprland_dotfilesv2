@@ -1,5 +1,5 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */  ##
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */  ##
 # For disabling touchpad.
 # Edit the Touchpad_Device on ~/.config/hypr/UserConfigs/Laptops.conf according to your system
 # use hyprctl devices to get your system touchpad device name

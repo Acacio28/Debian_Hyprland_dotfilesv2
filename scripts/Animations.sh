@@ -1,5 +1,5 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */  ##
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */  ##
 # For applying Animations from different users
 
 # Check if rofi is already running

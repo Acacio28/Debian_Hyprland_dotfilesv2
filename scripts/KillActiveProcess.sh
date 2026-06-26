@@ -1,5 +1,5 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */  ##
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */  ##
 
 # Copied from Discord post. Thanks to @Zorg
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */
 
 for i in {0..3}; do
   if [ -f /sys/class/power_supply/BAT$i/capacity ]; then

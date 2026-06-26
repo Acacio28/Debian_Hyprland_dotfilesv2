@@ -8,7 +8,7 @@
   <img src="screenshots/debian.png" width="600" />
 </p>
 
-![GitHub Repo stars](https://img.shields.io/github/stars/Akashio28/Debian_Hyprland_dotfilesv2?style=for-the-badge&color=cba6f7) ![GitHub last commit](https://img.shields.io/github/last-commit/Akashio28/Debian_Hyprland_dotfilesv2?style=for-the-badge&color=b4befe) ![GitHub repo size](https://img.shields.io/github/repo-size/Akashio28/Debian_Hyprland_dotfilesv2?style=for-the-badge&color=cba6f7)
+![GitHub Repo stars](https://img.shields.io/github/stars/Acacio28/Debian_Hyprland_dotfilesv2?style=for-the-badge&color=cba6f7) ![GitHub last commit](https://img.shields.io/github/last-commit/Acacio28/Debian_Hyprland_dotfilesv2?style=for-the-badge&color=b4befe) ![GitHub repo size](https://img.shields.io/github/repo-size/Acacio28/Debian_Hyprland_dotfilesv2?style=for-the-badge&color=cba6f7)
 
 <br/>
 </div>
@@ -37,7 +37,7 @@
 
 - **Compositor**: Hyprland `v0.55.4` (built from source with Lua patches)
 - **Distro**: Debian (apt-based, Debian 13 "Trixie" or later recommended)
-- **Config base**: [Akashio28 Hyprland-Dots](https://github.com/Akashio28), modified & adapted by [@Akashio28](https://github.com/Akashio28)
+- **Config base**: [Acacio28 Hyprland-Dots](https://github.com/Acacio28), modified & adapted by [@Acacio28](https://github.com/Acacio28)
 - **Config language**: Lua (`.lua`) — migrated from Hyprlang (`.conf`)
 - **Plugins**: `hyprgrass`, `hyprexpo+` (via `hyprpm`)
 
@@ -250,7 +250,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for the full history.
 
 #### 🙋 Having issues or questions?
 
-- Open an issue on this repo: [Issues](https://github.com/Akashio28/Debian_Hyprland_dotfilesv2/issues)
+- Open an issue on this repo: [Issues](https://github.com/Acacio28/Debian_Hyprland_dotfilesv2/issues)
 - Refer to [`INSTALL.md`](INSTALL.md) for troubleshooting steps
 
 ---
@@ -258,7 +258,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for the full history.
 #### 👍👍👍 Thanks and Credits
 
 - [`Hyprland`](https://hyprland.org/) and [@vaxerski](https://github.com/vaxerski) for this awesome dynamic tiling Wayland compositor
-- [`Akashio28`](https://github.com/Akashio28) for the original Hyprland-Dots this configuration is based on
+- [`Acacio28`](https://github.com/Acacio28) for the original Hyprland-Dots this configuration is based on
 - [`horriblename/hyprgrass`](https://github.com/horriblename/hyprgrass) and [`sandwichfarm/hyprexpo`](https://github.com/sandwichfarm/hyprexpo) for the plugins
 - Wallpaper/illustration credits as noted in `assets/`
 
@@ -267,10 +267,10 @@ See [`CHANGELOG.md`](CHANGELOG.md) for the full history.
 ### 💖 Support
 
 - A ⭐ on this repo would be appreciated!
-- Follow [@Akashio28](https://github.com/Akashio28) on GitHub for more dotfiles and projects.
+- Follow [@Acacio28](https://github.com/Acacio28) on GitHub for more dotfiles and projects.
 
 ---
 
 ## 📄 License
 
-No license specified. Feel free to use this configuration as a reference, but please credit the original [Akashio28 Hyprland-Dots](https://github.com/Akashio28) project this is based on.
+No license specified. Feel free to use this configuration as a reference, but please credit the original [Acacio28 Hyprland-Dots](https://github.com/Acacio28) project this is based on.

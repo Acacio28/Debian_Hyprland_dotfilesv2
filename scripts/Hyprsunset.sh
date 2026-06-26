@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */
 set -euo pipefail
 
 # Hyprsunset toggle + Waybar status helper

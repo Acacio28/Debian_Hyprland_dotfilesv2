@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # WaybarCava.sh — safer single-instance handling, cleanup, and robustness
-# Original concept by Akashio28; this variant focuses on lifecycle hardening.
+# Original concept by Acacio28; this variant focuses on lifecycle hardening.
 
 set -euo pipefail
 

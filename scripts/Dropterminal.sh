@@ -1,5 +1,5 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */  ##
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */  ##
 #
 # Made and brought to by Kiran George
 # /* -- ✨ https://github.com/SherLock707 ✨ -- */  ##

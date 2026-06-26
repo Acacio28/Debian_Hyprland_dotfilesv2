@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */  #
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */  #
 # Rewritten to use Open-Meteo APIs (worldwide, no API key) for robust weather data.
 # Outputs Waybar-compatible JSON and a simple text cache.
 

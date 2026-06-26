@@ -1,4 +1,4 @@
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */
 #!/bin/bash
 
 bluetooth_status=$(bluetoothctl show | grep "Powered: yes" > /dev/null && echo "on" || echo "off")

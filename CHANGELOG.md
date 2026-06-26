@@ -17,7 +17,7 @@ All notable changes to this dotfiles configuration are documented here.
 
 ## [2.0.0] - Hyprland v0.55.2 Migration
 
-This release adapts the configuration (originally based on Akashio28's Hyprland-Dots) for compatibility with **Hyprland v0.55.2**, fixing several breaking changes introduced in recent Hyprland releases.
+This release adapts the configuration (originally based on Acacio28's Hyprland-Dots) for compatibility with **Hyprland v0.55.2**, fixing several breaking changes introduced in recent Hyprland releases.
 
 ### Changed
 
@@ -59,6 +59,6 @@ This release adapts the configuration (originally based on Akashio28's Hyprland-
 
 ## [1.0.0] - Initial Fork
 
-- Initial configuration based on [Akashio28's Hyprland-Dots](https://github.com/Akashio28)
+- Initial configuration based on [Acacio28's Hyprland-Dots](https://github.com/Acacio28)
 - Adapted for Debian (apt-based) systems
 - Added `install.sh` with automatic backup of existing configs and `hyprpm` plugin setup

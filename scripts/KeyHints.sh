@@ -1,5 +1,5 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */  ##
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */  ##
 
 # GDK BACKEND. Change to either wayland or x11 if having issues
 BACKEND=wayland
@@ -69,4 +69,4 @@ GDK_BACKEND=$BACKEND yad \
 " ALT E" "Rofi Emoticons" "Emoticon" \
 " H" "Launch this Quick Cheat Sheet" "" \
 "" "" "" \
-"More tips:" "https://github.com/Akashio28/Hyprland-Dots/wiki" ""\
+"More tips:" "https://github.com/Acacio28/Debian_Hyprland_dotfilesv2/wiki" ""\

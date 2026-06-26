@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */
 # Script parses /proc/uptime to get the system uptime
 # and prints it in a human-readable format
 # This is a workaround for system where `uptime` command is taken from coreutils

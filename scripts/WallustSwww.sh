@@ -1,5 +1,5 @@
 #!/bin/bash
-# /* ---- 💫 https://github.com/Akashio28 💫 ---- */  ##
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */  ##
 # Wallust: derive colors from the current wallpaper and update templates
 # Usage: WallustSwww.sh [absolute_path_to_wallpaper]
 
