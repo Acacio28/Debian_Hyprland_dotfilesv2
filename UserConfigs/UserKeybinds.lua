@@ -60,6 +60,8 @@ hl.bind(mainMod .. " + CTRL + F12", hl.dsp.workspace.move({ monitor = "d" }))
 
 hl.bind("SUPER + A", hl.dsp.exec_cmd("hyprctl dispatch hyprexpo:expo toggle"))
 
+hl.bind(mainMod .. " + SHIFT + Z", hl.dsp.exec_cmd(scriptsDir .. "/Wlogout.sh"))
+
 -- hyprgrass 3-finger swipe gestures (set after plugin loads)
 hl.on("hyprland.start", function()
     hl.exec_cmd('hyprctl keyword plugin:hyprgrass:hyprgrass-bind ", swipe:3:r, workspace, +1"')

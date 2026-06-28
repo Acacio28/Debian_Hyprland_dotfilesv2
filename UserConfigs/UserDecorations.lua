@@ -3,13 +3,9 @@ dofile(os.getenv("HOME") .. "/.config/hypr/wallust/wallust-hyprland.lua")
 
 hl.config({
     general = {
-        border_size = 2,
-        gaps_in     = 2,
+        border_size = 0,
+        gaps_in     = 3,
         gaps_out    = 4,
-        col = {
-            active_border   = color12,
-            inactive_border = color10,
-        },
     },
     decoration = {
         rounding          = 10,
