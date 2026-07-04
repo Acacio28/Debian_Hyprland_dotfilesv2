@@ -1,6 +1,7 @@
 #!/bin/bash
 # Install zsh with Oh-My-Zsh
 
+mkdir -p Install-Logs
 LOG="Install-Logs/install-$(date +%d-%H%M%S).log"
 
 sudo apt install -y zsh 2>&1 | tee -a "$LOG"

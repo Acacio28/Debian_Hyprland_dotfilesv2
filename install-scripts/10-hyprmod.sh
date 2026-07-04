@@ -1,6 +1,7 @@
 #!/bin/bash
 # Install hyprmod Python GUI app
 
+mkdir -p Install-Logs
 LOG="Install-Logs/install-$(date +%d-%H%M%S).log"
 
 if [ ! -d "/tmp/hyprmod" ]; then

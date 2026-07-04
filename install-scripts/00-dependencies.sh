@@ -1,6 +1,7 @@
 #!/bin/bash
 # Build dependencies for Hyprland ecosystem
 
+mkdir -p Install-Logs
 LOG="Install-Logs/install-$(date +%d-%H%M%S).log"
 
 DEPS=(

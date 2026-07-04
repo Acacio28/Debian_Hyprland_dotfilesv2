@@ -1,6 +1,7 @@
 #!/bin/bash
 # Configure Bluetooth
 
+mkdir -p Install-Logs
 LOG="Install-Logs/install-$(date +%d-%H%M%S).log"
 
 sudo apt install -y bluez bluez-tools 2>&1 | tee -a "$LOG"

@@ -1,6 +1,7 @@
 #!/bin/bash
 # Setup hyprpm and install plugins
 
+mkdir -p Install-Logs
 LOG="Install-Logs/install-$(date +%d-%H%M%S).log"
 
 if ! command -v hyprpm &>/dev/null; then

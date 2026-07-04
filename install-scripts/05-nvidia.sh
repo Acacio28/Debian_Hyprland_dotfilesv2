@@ -1,6 +1,7 @@
 #!/bin/bash
 # Configure NVIDIA GPU
 
+mkdir -p Install-Logs
 LOG="Install-Logs/install-$(date +%d-%H%M%S).log"
 
 if ! lspci | grep -i nvidia &>/dev/null; then
