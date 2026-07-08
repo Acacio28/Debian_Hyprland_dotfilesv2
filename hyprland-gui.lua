@@ -3,18 +3,157 @@
 
 hl.config({
     general = {
-        border_size = 2,
+        gaps_in = 4,
+        gaps_out = 4,
+        border_size = 0,
+        resize_on_border = true,
+        extend_border_grab_area = 0,
+        hover_icon_on_border = true,
         col = {
-            active_border = "rgb(ffffff)",
+            active_border = "0xffffffff",
+            inactive_border = "0xffffffff",
         },
     },
     decoration = {
-        rounding = 10,
+        rounding = 15,
+        rounding_power = 3.0,
+        blur = {
+            size = 5,
+            passes = 5,
+            noise = 0.012,
+        },
+        shadow = {
+            enabled = true,
+            range = 10,
+            render_power = 4,
+            offset = "3 3",
+            scale = 1.0,
+            color = "0xff5e5c64",
+            color_inactive = "0xff5e5c64",
+        },
     },
-    input = {
-        natural_scroll = false,
+    misc = {
+        vrr = 2,
     },
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 hl.curve("easeOut", { type = "bezier", points = { {0.0, 0.0}, {0.58, 1.0} } })
