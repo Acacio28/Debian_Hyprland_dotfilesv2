@@ -1,15 +1,14 @@
 -- /* ---- 💫 https://github.com/Acacio28 ---- */
 -- Fallback defaults + applies hyprland-gui.conf at startup
 
--- Apply saved GUI settings from .conf on login
-hl.on("hyprland.start", function()
+-- Apply saved GUI settings from .conf (callable on startup & lid open)
+local function apply_gui_conf()
   local f = io.open(os.getenv("HOME") .. "/.config/hypr/hyprland-gui.conf", "r")
   if not f then return end
   for line in f:lines() do
     line = line:gsub("#.*", "")
     local key, val = line:match("^%s*([^=]+)%s*=%s*(.-)%s*$")
     if key and val and not key:match("^monitor") then
-      -- Build nested table: "general:col.active_border" -> {general={col={active_border="val"}}}
       val = val:gsub("%s*%d+deg%s*$", "")
       local parts = {}
       for p in key:gmatch("[^:%.]+") do
@@ -22,7 +21,10 @@ hl.on("hyprland.start", function()
     end
   end
   f:close()
-end)
+end
+
+hl.on("hyprland.start", apply_gui_conf)
+hl.on("monitor.added", apply_gui_conf)
 
 hl.env("XCURSOR_THEME", "Breeze_Light")
 hl.env("XCURSOR_SIZE", "24")
