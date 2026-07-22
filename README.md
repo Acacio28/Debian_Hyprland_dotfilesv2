@@ -255,7 +255,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for the full history.
 
 ---
 
-#### 👍👍👍 Thanks and Credits
+#### 👍 Thanks and Credits
 
 - [`Hyprland`](https://hyprland.org/) and [@vaxerski](https://github.com/vaxerski) for this awesome dynamic tiling Wayland compositor
 - [`Acacio28`](https://github.com/Acacio28) for the original Hyprland-Dots this configuration is based on
