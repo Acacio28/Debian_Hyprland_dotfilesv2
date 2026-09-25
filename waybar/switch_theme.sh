@@ -1,5 +1,5 @@
-# /* ---- 💫 https://github.com/Acacio28 💫 ---- */
 #!/bin/bash
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */
 # 💫 Antigravity Waybar Theme Switcher 💫
 
 THEMES_DIR="$HOME/.config/waybar/themes"

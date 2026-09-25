@@ -13,7 +13,7 @@ fi
 PACKAGES=(
     waybar rofi sway-notification-center kitty nautilus
     fonts-noto fonts-noto-color-emoji fonts-jetbrains-mono fonts-firacode
-    wlogout tofi btop cava fastfetch grim slurp swappy
+    wlogout tofi btop cava fastfetch grim slurp swappy hyprsunset
     wl-clipboard cliphist brightnessctl pamixer playerctl pavucontrol
     network-manager network-manager-gnome blueman polkit-kde-agent-1 jq imagemagick
     xdg-desktop-portal-hyprland xdg-utils qt5ct qt6ct libnotify-bin

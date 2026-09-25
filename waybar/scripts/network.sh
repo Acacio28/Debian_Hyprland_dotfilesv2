@@ -1,5 +1,5 @@
-# /* ---- 💫 https://github.com/Acacio28 💫 ---- */
 #!/bin/bash
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */
 
 wifi_status=$(nmcli -t -f WIFI g)
 wifi_ssid=$(nmcli -t -f ACTIVE,SSID dev wifi | grep '^yes' | cut -d: -f2)
