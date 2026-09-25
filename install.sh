@@ -279,4 +279,5 @@ if command -v Hyprland &>/dev/null || [ -f /usr/local/bin/Hyprland ]; then
     esac
 else
     echo "${ERROR} Hyprland was NOT installed. Check the logs." | tee -a "$LOG"
+    exit 1
 fi

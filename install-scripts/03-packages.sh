@@ -4,6 +4,12 @@
 mkdir -p Install-Logs
 LOG="Install-Logs/install-$(date +%d-%H%M%S).log"
 
+CODENAME=""
+if [ -r /etc/os-release ]; then
+    . /etc/os-release
+    [ "$ID" = "debian" ] && CODENAME="${VERSION_CODENAME:-}"
+fi
+
 PACKAGES=(
     waybar rofi sway-notification-center kitty nautilus
     fonts-noto fonts-noto-color-emoji fonts-jetbrains-mono fonts-firacode
@@ -19,14 +25,25 @@ for pkg in "${PACKAGES[@]}"; do
     if command -v "$pkg" &>/dev/null; then
         continue
     fi
-    if ! dpkg -l 2>/dev/null | grep -q "^ii.*$pkg"; then
+    # exact name check - `dpkg -l | grep` also matches descriptions ("profiles" hits rofi)
+    if ! dpkg -s "$pkg" 2>/dev/null | grep -q "Status: install ok installed"; then
         echo "Installing $pkg..."
-        sudo apt install -y --no-install-recommends "$pkg" 2>&1 | tee -a "$LOG" || echo "Warning: $pkg could not be installed (may not be in repo)"
+        # PIPESTATUS (not the pipeline's rc) because `| tee` masks apt failures
+        sudo apt install -y --no-install-recommends "$pkg" 2>&1 | tee -a "$LOG"
+        APT_RC=${PIPESTATUS[0]}
+        if [ "$APT_RC" -ne 0 ] && [ -n "$CODENAME" ]; then
+            # After backports Hyprland, some deps (libxkbcommon0) only match from
+            # backports - retry there before giving up (waybar case)
+            sudo apt install -y --no-install-recommends -t "${CODENAME}-backports" "$pkg" 2>&1 | tee -a "$LOG"
+            APT_RC=${PIPESTATUS[0]}
+            [ "$APT_RC" -eq 0 ] && echo "$pkg installed from ${CODENAME}-backports"
+        fi
+        [ "$APT_RC" -ne 0 ] && echo "Warning: $pkg could not be installed (may not be in repo)"
     fi
 done
 
-# Install wallust + pywal from pip (not in Debian repos)
-if ! command -v wallust &>/dev/null || ! command -v wal &>/dev/null; then
-    echo "Installing wallust + pywal via pip..."
-    sudo pip3 install --break-system-packages wallust pywal 2>&1 | tee -a "$LOG" || true
+# pywal from pip (wallust is a Rust crate, installed by 12-swww.sh)
+if ! command -v wal &>/dev/null; then
+    echo "Installing pywal via pip..."
+    sudo pip3 install --break-system-packages pywal 2>&1 | tee -a "$LOG" || true
 fi

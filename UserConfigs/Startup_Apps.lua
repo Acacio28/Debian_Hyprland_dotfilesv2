@@ -8,6 +8,7 @@ local livewallpaper = ""
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("/usr/lib/xdg-desktop-portal")
+    hl.exec_cmd("[ -x $HOME/.local/bin/hyprpm-plugins-setup.sh ] && $HOME/.local/bin/hyprpm-plugins-setup.sh")
     hl.exec_cmd("swww-daemon --format xrgb && if [ -f ~/.cache/wal/wal ]; then swww img \"$(cat ~/.cache/wal/wal)\" && wallust run \"$(cat ~/.cache/wal/wal)\"; fi")
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")

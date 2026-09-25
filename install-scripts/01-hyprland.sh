@@ -16,13 +16,19 @@ if [ -r /etc/os-release ]; then
     [ "$ID" = "debian" ] && CODENAME="${VERSION_CODENAME:-}"
 fi
 
-if [ -n "$CODENAME" ] && ! grep -Rhsq "${CODENAME}-backports" /etc/apt/sources.list /etc/apt/sources.list.d/ 2>/dev/null; then
-    echo "Enabling ${CODENAME}-backports..."
-    echo "deb http://deb.debian.org/debian ${CODENAME}-backports main" | sudo tee /etc/apt/sources.list.d/backports.list >/dev/null
-    sudo apt-get update 2>&1 | tee -a "$LOG"
+BACKPORTS_READY=""
+if [ -n "$CODENAME" ]; then
+    if ! grep -Rhsq "${CODENAME}-backports" /etc/apt/sources.list /etc/apt/sources.list.d/ 2>/dev/null; then
+        echo "Enabling ${CODENAME}-backports..."
+        echo "deb http://deb.debian.org/debian ${CODENAME}-backports main" | sudo tee /etc/apt/sources.list.d/backports.list >/dev/null
+        sudo apt-get update 2>&1 | tee -a "$LOG"
+    fi
+    BACKPORTS_READY="-t ${CODENAME}-backports"
 fi
 
-sudo apt install -y hyprland hyprland-dev 2>&1 | tee -a "$LOG"
+# -t backports: hyprland needs libxkbcommon0 >= 1.12.3 which is only in backports;
+# without it apt resolves deps against trixie/main and fails
+sudo apt install -y $BACKPORTS_READY hyprland hyprland-dev 2>&1 | tee -a "$LOG"
 
 if ! command -v Hyprland &>/dev/null; then
     echo "ERROR: Hyprland installation failed. Check $LOG"
