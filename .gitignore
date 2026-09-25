@@ -5,3 +5,9 @@ wallust/wallust-hyprland.lua
 
 # Hyprland auto-generated stub (created when lua entry point is found)
 hyprland.conf
+
+# Installer logs
+Install-Logs/
+
+# Python venv from hyprmod installer
+.venv/
