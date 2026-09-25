@@ -15,6 +15,10 @@ PACKAGES=(
 )
 
 for pkg in "${PACKAGES[@]}"; do
+    # Already usable (binary may come from outside dpkg, e.g. manual install)
+    if command -v "$pkg" &>/dev/null; then
+        continue
+    fi
     if ! dpkg -l 2>/dev/null | grep -q "^ii.*$pkg"; then
         echo "Installing $pkg..."
         sudo apt install -y --no-install-recommends "$pkg" 2>&1 | tee -a "$LOG" || echo "Warning: $pkg could not be installed (may not be in repo)"
