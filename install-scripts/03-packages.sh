@@ -9,7 +9,7 @@ PACKAGES=(
     fonts-noto fonts-noto-color-emoji fonts-jetbrains-mono fonts-firacode
     wlogout tofi btop cava fastfetch grim slurp swappy
     wl-clipboard cliphist brightnessctl pamixer playerctl pavucontrol
-    network-manager nm-applet blueman polkit-kde-agent-1 jq imagemagick
+    network-manager network-manager-gnome blueman polkit-kde-agent-1 jq imagemagick
     xdg-desktop-portal-hyprland xdg-utils qt5ct qt6ct
     python3-requests python3-pip
 )

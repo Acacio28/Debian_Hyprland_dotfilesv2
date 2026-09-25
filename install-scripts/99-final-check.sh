@@ -1,7 +1,8 @@
 #!/bin/bash
 # Final verification
 
-ESSENTIALS=(Hyprland waybar rofi kitty swaync swww wlogout btop fastfetch grim slurp wl-clipboard wallust)
+# Note: check command names, not package names (wl-clipboard ships wl-copy/wl-paste)
+ESSENTIALS=(Hyprland waybar rofi kitty swaync swww wlogout btop fastfetch grim slurp wl-copy wallust)
 MISSING=()
 
 for cmd in "${ESSENTIALS[@]}"; do
