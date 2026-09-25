@@ -3,39 +3,198 @@
 
 hl.config({
     general = {
-        gaps_in = 4,
-        gaps_out = 4,
+        gaps_in = 5,
+        gaps_out = 5,
         border_size = 0,
-        resize_on_border = true,
-        extend_border_grab_area = 0,
+        resize_on_border = false,
+        extend_border_grab_area = 5,
         hover_icon_on_border = true,
-        col = {
-            active_border = "0xffffffff",
-            inactive_border = "0xffffffff",
-        },
     },
     decoration = {
         rounding = 15,
-        rounding_power = 3.0,
+        rounding_power = 2.0,
         blur = {
-            size = 5,
-            passes = 5,
+            size = 11,
+            passes = 2,
+            xray = false,
             noise = 0.012,
         },
         shadow = {
             enabled = true,
-            range = 10,
+            range = 13,
             render_power = 4,
-            offset = "3 3",
+            offset = "2 1",
             scale = 1.0,
-            color = "0xff5e5c64",
-            color_inactive = "0xff5e5c64",
+            color = "0xff3d3846",
+            color_inactive = "0xff3d3846",
         },
     },
     misc = {
         vrr = 2,
     },
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
