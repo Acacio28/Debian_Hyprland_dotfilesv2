@@ -44,18 +44,9 @@ EOF
 }
 
 # --- APT source checks ---
-_detect_codename() {
-    local c
-    if [ -r /etc/os-release ]; then
-        . /etc/os-release 2>/dev/null || true
-        c="${DEBIAN_CODENAME:-${VERSION_CODENAME:-}}"
-    fi
-    [ -z "$c" ] && c=$(lsb_release -c -s 2>/dev/null || echo "trixie")
-    echo "$c"
-}
-
 _has_deb_src_enabled() {
-    sudo grep -RhsE '^[[:space:]]*deb-src[[:space:]]' /etc/apt/sources.list /etc/apt/sources.list.d/*.list 2>/dev/null | grep -q .
+    sudo grep -RhsE '^[[:space:]]*deb-src[[:space:]]' /etc/apt/sources.list /etc/apt/sources.list.d/*.list 2>/dev/null | grep -q . \
+        || sudo grep -RhsE '^[[:space:]]*Types:[[:space:]].*\bdeb-src\b' /etc/apt/sources.list.d/*.sources 2>/dev/null | grep -q .
 }
 
 _enable_deb_src() {
@@ -151,10 +142,14 @@ lspci | grep -i nvidia &>/dev/null && nvidia_detected=true
 input_group_detected=false
 groups "$(whoami)" | grep -q '\binput\b' || input_group_detected=true
 
-if [ "$TTY_MODE" -eq 1 ]; then
+if [ -n "${PRESET_FILE:-}" ]; then
+    echo "${INFO} Using preset: $PRESET_FILE (skipping interactive selection)"
+elif [ "$TTY_MODE" -eq 1 ]; then
     echo "=== Select options ==="
     [ "$nvidia_detected" == "true" ] && read -rp "Configure NVIDIA? [y/N]: " n && [ "$n" = "y" ] && nvidia="ON"
+    [ "$input_group_detected" == "true" ] && read -rp "Add user to input group? [y/N]: " ig && [ "$ig" = "y" ] && input_group="ON"
     read -rp "Install GTK themes? [Y/n]: " g && [ "$g" != "n" ] && gtk_themes="ON"
+    read -rp "Install Thunar file manager? [y/N]: " t && [ "$t" = "y" ] && thunar="ON"
     read -rp "Configure Bluetooth? [y/N]: " b && [ "$b" = "y" ] && bluetooth="ON"
     read -rp "Install SDDM login manager? [y/N]: " s && [ "$s" = "y" ] && sddm="ON"
     read -rp "Install Zsh + Oh-My-Zsh? [y/N]: " z && [ "$z" = "y" ] && zsh="ON"
@@ -194,14 +189,21 @@ fi
 # --- Execute install scripts ---
 script_dir=install-scripts
 
+FAILED_SCRIPTS=()
+
 run_script() {
     local script="$1"
     local path="$script_dir/$script"
     if [ -f "$path" ]; then
         chmod +x "$path"
         "$path" 2>&1 | tee -a "$LOG"
+        local rc=${PIPESTATUS[0]}
+        if [ "$rc" -ne 0 ]; then
+            FAILED_SCRIPTS+=("$script (exit $rc)")
+        fi
     else
         echo "${WARN} $script not found" | tee -a "$LOG"
+        FAILED_SCRIPTS+=("$script (missing)")
     fi
 }
 
@@ -232,9 +234,24 @@ run_script "02-plugins.sh"
 [ "$bluetooth" = "ON" ] && run_script "08-bluetooth.sh"
 [ "$zsh" = "ON" ] && run_script "09-zsh.sh"
 [ "$hyprmod" = "ON" ] && run_script "10-hyprmod.sh"
+[ "$thunar" = "ON" ] && run_script "11-thunar.sh"
+if [ "$input_group" = "ON" ]; then
+    sudo usermod -aG input "$(whoami)" 2>&1 | tee -a "$LOG"
+    if [ "${PIPESTATUS[0]}" -eq 0 ]; then
+        echo "${OK} Added $(whoami) to input group (re-login to apply)" | tee -a "$LOG"
+    else
+        FAILED_SCRIPTS+=("input_group (usermod failed)")
+    fi
+fi
 
 # Final check
 run_script "99-final-check.sh"
+
+# Report failed steps
+if [ ${#FAILED_SCRIPTS[@]} -gt 0 ]; then
+    echo "${WARN} Some steps reported failures:" | tee -a "$LOG"
+    printf '  - %s\n' "${FAILED_SCRIPTS[@]}" | tee -a "$LOG"
+fi
 
 # --- Cleanup ---
 rm -f JetBrainsMono.tar.xz VictorMonoAll.zip FantasqueSansMono.zip 2>/dev/null || true
