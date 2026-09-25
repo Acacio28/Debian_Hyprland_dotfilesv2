@@ -1,5 +1,5 @@
-# /* ---- 💫 https://github.com/Acacio28 💫 ---- */
 #!/bin/bash
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */
 
 bluetooth_status=$(bluetoothctl show | grep "Powered: yes" > /dev/null && echo "on" || echo "off")
 connected_devices=$(bluetoothctl devices Connected | wc -l)

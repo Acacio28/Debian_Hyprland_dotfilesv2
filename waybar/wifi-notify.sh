@@ -1,5 +1,5 @@
-# /* ---- 💫 https://github.com/Acacio28 💫 ---- */
 #!/bin/bash
+# /* ---- 💫 https://github.com/Acacio28 💫 ---- */
 SSID="$1"
 STATUS="$2"
 
