@@ -8,7 +8,7 @@ HYPR_CONF="$HOME/.config/hypr/hyprpaper.conf"
 LAST_FILE="$HOME/.cache/last_wallpaper"  # remembers last wallpaper
 CACHE="$HOME/.cache/wallpapers_list.txt" # cached list of wallpapers
 
-export PATH="$HOME/anaconda3/bin:/usr/local/bin:/usr/bin:$PATH"
+export PATH="$HOME/anaconda3/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:$PATH"
 
 # === Build cached file list (symlink-safe) ===
 if [ ! -f "$CACHE" ] || [ "$(find -L "$WALLPAPER_DIR" -type f | wc -l)" -ne "$(wc -l <"$CACHE")" ]; then
@@ -20,7 +20,7 @@ fi
 mapfile -t FILES <"$CACHE"
 
 if [ ${#FILES[@]} -eq 0 ]; then
-  # notify-send "No images found in $WALLPAPER_DIR"
+  notify-send "Wallpaper" "No images found in $WALLPAPER_DIR" 2>/dev/null || true
   exit 1
 fi
 
@@ -44,9 +44,9 @@ swww img "$FILE" \
 #  --transition-step 50
 
 # === Apply wallpaper and generate theme ===
-/home/acacio/.local/bin/wal --saturate 0.5 -a 20 -i "$FILE"
+wal --saturate 0.5 -a 20 -i "$FILE"
 
-/usr/local/bin/wallust run "$FILE" -s
+wallust run "$FILE" -s
 
 # /home/noro18/.cargo/bin/matugen image "$FILE"
 

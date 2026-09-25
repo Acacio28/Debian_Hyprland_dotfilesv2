@@ -10,7 +10,7 @@ PACKAGES=(
     wlogout tofi btop cava fastfetch grim slurp swappy
     wl-clipboard cliphist brightnessctl pamixer playerctl pavucontrol
     network-manager network-manager-gnome blueman polkit-kde-agent-1 jq imagemagick
-    xdg-desktop-portal-hyprland xdg-utils qt5ct qt6ct
+    xdg-desktop-portal-hyprland xdg-utils qt5ct qt6ct libnotify-bin
     python3-requests python3-pip
 )
 
@@ -25,8 +25,8 @@ for pkg in "${PACKAGES[@]}"; do
     fi
 done
 
-# Install wallust from pip if apt doesn't have it
-if ! command -v wallust &>/dev/null; then
-    echo "Installing wallust via pip..."
-    pip install wallust --break-system-packages 2>&1 | tee -a "$LOG" || true
+# Install wallust + pywal from pip (not in Debian repos)
+if ! command -v wallust &>/dev/null || ! command -v wal &>/dev/null; then
+    echo "Installing wallust + pywal via pip..."
+    sudo pip3 install --break-system-packages wallust pywal 2>&1 | tee -a "$LOG" || true
 fi

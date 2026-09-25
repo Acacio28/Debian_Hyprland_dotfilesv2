@@ -54,6 +54,13 @@ for item in "${HYPR_ITEMS[@]}"; do
     fi
 done
 
+# seed wallust palette (UserDecorations.lua dofiles this; wallust only
+# regenerates it on the first successful `wallust run`)
+mkdir -p "$HOME/.config/hypr/wallust"
+if [ -f "$SCRIPT_DIR/wallust/wallust-hyprland.lua" ]; then
+    cp "$SCRIPT_DIR/wallust/wallust-hyprland.lua" "$HOME/.config/hypr/wallust/"
+fi
+
 find "$HOME/.config/hypr" -name "*.sh" -exec chmod +x {} \;
 echo "Dotfiles installed to ~/.config and ~/.config/hypr"
 if [ -d "$BACKUP_DIR" ]; then
