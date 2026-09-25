@@ -7,6 +7,8 @@ LOG="Install-Logs/install-$(date +%d-%H%M%S).log"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BACKUP_DIR="$HOME/.config-backup-$(date +%Y%m%d-%H%M%S)"
 
+mkdir -p "$HOME/.config"
+
 # Sibling configs -> ~/.config/<dir>
 CONFIG_DIRS=(waybar rofi kitty swaync wlogout wofi tofi btop cava wallust nwg-look)
 
@@ -54,4 +56,7 @@ done
 
 find "$HOME/.config/hypr" -name "*.sh" -exec chmod +x {} \;
 echo "Dotfiles installed to ~/.config and ~/.config/hypr"
-[ -d "$BACKUP_DIR" ] && echo "Previous configs backed up to $BACKUP_DIR"
+if [ -d "$BACKUP_DIR" ]; then
+    echo "Previous configs backed up to $BACKUP_DIR"
+fi
+exit 0

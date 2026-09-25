@@ -86,17 +86,21 @@ fi
 
 # --- Welcome ---
 echo "${NOTE} This script will:"
-echo "  1. Install build dependencies & build Hyprland from source"
-echo "  2. Install Wayland/app packages (waybar, rofi, etc.)"
+echo "  1. Install Hyprland (Debian backports) & base build tools"
+echo "  2. Install Wayland/app packages (waybar, rofi, etc.) + build swww"
 echo "  3. Setup hyprpm plugins (hyprgrass, hyprexpo)"
 echo "  4. Backup existing configs & copy dotfiles"
-echo "  5. Optional: NVIDIA, SDDM, GTK themes, Bluetooth, Zsh"
+echo "  5. Optional: HyprMod, NVIDIA, SDDM, GTK themes, Bluetooth, Zsh"
 printf "\n"
-read -rp "${CAT} Continue? [y/N]: " confirm
-case "$confirm" in
-    [yY][eE][sS]|[yY]) echo "${OK} Starting..." ;;
-    *) echo "${NOTE} Cancelled."; exit 0 ;;
-esac
+if [ -n "${PRESET_FILE:-}" ]; then
+    echo "${OK} Starting (preset mode)..."
+else
+    read -rp "${CAT} Continue? [y/N]: " confirm
+    case "$confirm" in
+        [yY][eE][sS]|[yY]) echo "${OK} Starting..." ;;
+        *) echo "${NOTE} Cancelled."; exit 0 ;;
+    esac
+fi
 
 mkdir -p Install-Logs
 LOG="Install-Logs/install-$(date +%d-%H%M%S).log"
@@ -211,13 +215,17 @@ run_script() {
 echo "${INFO} Installing build dependencies..." | tee -a "$LOG"
 run_script "00-dependencies.sh"
 
-# 2. Build Hyprland
-echo "${INFO} Building Hyprland from source..." | tee -a "$LOG"
+# 2. Hyprland
+echo "${INFO} Installing Hyprland..." | tee -a "$LOG"
 run_script "01-hyprland.sh"
 
 # 3. System packages
 echo "${INFO} Installing system packages..." | tee -a "$LOG"
 run_script "03-packages.sh"
+
+# 3b. swww (wallpaper daemon, built from source - not in Debian repos)
+echo "${INFO} Installing swww..." | tee -a "$LOG"
+run_script "12-swww.sh"
 
 # 4. Dotfiles
 echo "${INFO} Backing up and copying dotfiles..." | tee -a "$LOG"

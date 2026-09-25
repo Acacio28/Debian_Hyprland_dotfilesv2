@@ -5,7 +5,7 @@ mkdir -p Install-Logs
 LOG="Install-Logs/install-$(date +%d-%H%M%S).log"
 
 PACKAGES=(
-    waybar rofi swaync kitty nautilus swww
+    waybar rofi sway-notification-center kitty nautilus
     fonts-noto fonts-noto-color-emoji fonts-jetbrains-mono fonts-firacode
     wlogout tofi btop cava fastfetch grim slurp swappy
     wl-clipboard cliphist brightnessctl pamixer playerctl pavucontrol

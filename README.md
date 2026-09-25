@@ -35,7 +35,7 @@
 
 ## 📋 Specs
 
-- **Compositor**: Hyprland `v0.55.4` (built from source with Lua patches)
+- **Compositor**: Hyprland `v0.55.x` (Debian backports package, native Lua config)
 - **Distro**: Debian (apt-based, Debian 13 "Trixie" or later recommended)
 - **Config base**: [Acacio28 Hyprland-Dots](https://github.com/Acacio28), modified & adapted by [@Acacio28](https://github.com/Acacio28)
 - **Config language**: Lua (`.lua`) — migrated from Hyprlang (`.conf`)
@@ -90,7 +90,7 @@
 ## ✨ Features
 
 - Ready-to-use Hyprland config with **native Lua** (`.lua`) — no `.conf` files
-- One-line installer — builds Hyprland from source automatically
+- One-line installer — installs Hyprland, swww, swaync & everything else automatically
 - Waybar, Rofi, SwayNC, Kitty, and wlogout pre-configured
 - Wallpaper management via `swww` + `wallust` color theming
 - Touchscreen/trackpad gesture support (`hyprgrass`)
@@ -210,11 +210,11 @@ chmod +x install.sh
 
 #### ✨ What the script does
 
-1. Installs build dependencies and builds Hyprland v0.55.4 from **source**
-2. Installs Wayland/app packages (waybar, rofi, kitty, etc.)
-3. Backs up existing configs and copies the dotfiles
-4. Installs and enables `hyprgrass`, `hyprexpo+`, `borders-plus-plus` via `hyprpm`
-5. Optional: NVIDIA, SDDM, GTK themes, Bluetooth, Zsh, HyprMod
+1. Installs Hyprland from Debian backports (0.55.x, native Lua) + base tools
+2. Installs Wayland/app packages (waybar, rofi, kitty, swaync, etc.) and builds `swww` from source
+3. Backs up existing configs and copies the dotfiles (incl. wallust theming)
+4. Installs `hyprgrass`, `hyprexpo+` and `hyprland-plugins` via `hyprpm` (enables hyprgrass + hyprexpo)
+5. Optional: HyprMod, NVIDIA, SDDM, GTK themes, Bluetooth, Zsh, Thunar
 
 #### ✨ TO DO once installation is done
 
