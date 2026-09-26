@@ -57,3 +57,8 @@ cp -f "$wallpaper_path" "$wallpaper_current" || true
 # Run wallust (silent) to regenerate templates defined in ~/.config/wallust/wallust.toml
 # -s is used in this repo to keep things quiet and avoid extra prompts
 wallust run -s "$wallpaper_path" || true
+
+# Prune wallust cache: keep only 10 newest entries (each is ~300M)
+ls -1t "$HOME/.cache/wallust" 2>/dev/null | tail -n +11 | while IFS= read -r d; do
+  rm -rf "$HOME/.cache/wallust/$d"
+done

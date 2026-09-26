@@ -48,6 +48,11 @@ wal --saturate 0.5 -a 20 -i "$FILE"
 
 wallust run "$FILE" -s
 
+# === Prune wallust cache: keep only 10 newest entries (each is ~300M) ===
+ls -1t "$HOME/.cache/wallust" 2>/dev/null | tail -n +11 | while IFS= read -r d; do
+  rm -rf "$HOME/.cache/wallust/$d"
+done
+
 # /home/noro18/.cargo/bin/matugen image "$FILE"
 
 # === Restart waybar with new theme ===
