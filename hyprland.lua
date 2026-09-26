@@ -9,16 +9,36 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
     hl.exec_cmd(os.getenv("HOME") .. "/.config/hypr/UserScripts/WallpaperRandom.sh")
     hl.exec_cmd("hyprpm reload -n")
-    hl.exec_cmd("hyprctl keyword plugin:hyprexpo:columns 3")
-    hl.exec_cmd("hyprctl keyword plugin:hyprexpo:gaps_in 5")
-    hl.exec_cmd("hyprctl keyword plugin:hyprexpo:gaps_out 0")
-    hl.exec_cmd("hyprctl keyword plugin:hyprexpo:bg_col rgb(111111)")
-    hl.exec_cmd("hyprctl keyword plugin:hyprexpo:workspace_method center current")
-    hl.exec_cmd("hyprctl keyword plugin:hyprexpo:gesture_distance 200")
-    hl.exec_cmd("hyprctl keyword plugin:hyprexpo:cancel_key escape")
-    hl.exec_cmd("hyprctl keyword plugin:hyprexpo:show_cursor 1")
-    hl.exec_cmd("hyprctl keyword plugin:touch_gestures:sensitivity 1.0")
-    hl.exec_cmd("hyprctl keyword plugin:touch_gestures:workspace_swipe_fingers 3")
+end)
+
+-- Plugin config: reapplied on every config.reloaded because a reload resets
+-- plugin values to their defaults. The guards skip this while the plugins are
+-- not loaded yet (they get loaded by `hyprpm reload -n` above, which triggers
+-- another reload once they are in).
+hl.on("config.reloaded", function()
+    if hl.get_config("plugin:hyprexpo:columns") ~= nil then
+        hl.config({
+            plugin = {
+                hyprexpo = {
+                    columns          = 3,
+                    gaps_in          = 5,
+                    gaps_out         = 0,
+                    bg_col           = "rgb(111111)",
+                    workspace_method = "center current",
+                    gesture_distance = 200,
+                    cancel_key       = "escape",
+                    show_cursor      = 1,
+                },
+            },
+        })
+    end
+    if hl.get_config("plugin:hyprgrass:sensitivity") ~= nil then
+        hl.config({
+            plugin = {
+                hyprgrass = { sensitivity = 1.0 },
+            },
+        })
+    end
 end)
 
 dofile(os.getenv("HOME") .. "/.config/hypr/configs/Keybinds.lua")

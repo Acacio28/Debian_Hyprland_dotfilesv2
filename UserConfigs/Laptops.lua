@@ -3,7 +3,8 @@ mainMod = "SUPER"
 scriptsDir = os.getenv("HOME") .. "/.config/hypr/scripts"
 UserConfigs = os.getenv("HOME") .. "/.config/hypr/UserConfigs"
 
-local Touchpad_Device = "asue1209:00-04f3:319f-touchpad"
+-- hyprctl devices: the touchpad on this laptop is elan0511...
+local Touchpad_Device = "elan0511:00-04f3:3041-touchpad"
 local TOUCHPAD_ENABLED = true
 
 hl.bind("XF86KbdBrightnessDown", hl.dsp.exec_cmd(scriptsDir .. "/BrightnessKbd.sh --dec"), { repeating = true })

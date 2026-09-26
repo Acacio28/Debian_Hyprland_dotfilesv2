@@ -31,8 +31,8 @@ hl.bind(mainMod .. " + SPACE",        hl.dsp.window.float({ action = "toggle" })
 hl.bind(mainMod .. " + ALT + SPACE",  hl.dsp.exec_cmd("hyprctl dispatch workspaceopt allfloat"))
 hl.bind(mainMod .. " + SHIFT + Return", hl.dsp.exec_cmd(scriptsDir .. "/Dropterminal.sh " .. term))
 
-hl.bind(mainMod .. " + ALT + mouse_down", hl.dsp.exec_cmd('hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | awk \'NR==1 {factor = $2; if (factor < 1) {factor = 1}; print factor * 2.0}\')"'))
-hl.bind(mainMod .. " + ALT + mouse_up",   hl.dsp.exec_cmd('hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | awk \'NR==1 {factor = $2; if (factor < 1) {factor = 1}; print factor / 2.0}\')"'))
+hl.bind(mainMod .. " + ALT + mouse_down", hl.dsp.exec_cmd('hyprctl eval "hl.config({cursor={zoom_factor=$(hyprctl getoption cursor:zoom_factor | awk \'NR==1 {factor = $2; if (factor < 1) {factor = 1}; print factor * 2.0}\')}})"'))
+hl.bind(mainMod .. " + ALT + mouse_up",   hl.dsp.exec_cmd('hyprctl eval "hl.config({cursor={zoom_factor=$(hyprctl getoption cursor:zoom_factor | awk \'NR==1 {factor = $2; if (factor < 1) {factor = 1}; print factor / 2.0}\')}})"'))
 
 hl.bind(mainMod .. " + CTRL + ALT + B", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"))
 hl.bind(mainMod .. " + CTRL + B",       hl.dsp.exec_cmd(scriptsDir .. "/WaybarStyles.sh"))
@@ -62,8 +62,17 @@ hl.bind("SUPER + A", hl.dsp.exec_cmd("hyprctl dispatch hyprexpo:expo toggle"))
 
 hl.bind(mainMod .. " + SHIFT + Z", hl.dsp.exec_cmd(scriptsDir .. "/Wlogout.sh"))
 
--- hyprgrass 3-finger swipe gestures (set after plugin loads)
-hl.on("hyprland.start", function()
-    hl.exec_cmd('hyprctl keyword plugin:hyprgrass:hyprgrass-bind ", swipe:3:r, workspace, +1"')
-    hl.exec_cmd('hyprctl keyword plugin:hyprgrass:hyprgrass-bind ", swipe:3:l, workspace, -1"')
+-- hyprgrass 3-finger swipe gestures (re-registered on every config reload;
+-- hyprgrass clears its internal binds on preReload so nothing duplicates)
+hl.on("config.reloaded", function()
+    if hl.plugin and hl.plugin.hyprgrass then
+        hl.plugin.hyprgrass.bind {
+            pattern = { kind = "swipe", fingers = 3, direction = "right" },
+            action  = hl.dsp.focus({ workspace = "+1" }),
+        }
+        hl.plugin.hyprgrass.bind {
+            pattern = { kind = "swipe", fingers = 3, direction = "left" },
+            action  = hl.dsp.focus({ workspace = "-1" }),
+        }
+    end
 end)
