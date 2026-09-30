@@ -5,8 +5,8 @@
     "reload_style_on_change": true,
 
     "modules-left": [
+        "hyprland/workspaces",
         "custom/nix",
-        "clock",
         "network",
         "bluetooth",
 	 "custom/cava",
@@ -14,7 +14,7 @@
 
     ],
     "modules-center": [
-        "hyprland/workspaces"
+        "clock"
 
     ],
     "modules-right": [
@@ -71,21 +71,25 @@
     "clock": {
         "format": "{:%H:%M}  ",
         "format-alt": "{:%A, %B %d, %Y (%R)}  ",
-        "tooltip-format": "<span>{calendar}</span>",
+        "tooltip-format": "{:%A, %B %d %Y}\n\n{calendar}",
         "calendar": {
             "mode": "month",
+            "mode-mon-col": 1,
+            "weeks-pos": "right",
+            "on-scroll": 1,
             "format": {
-                "months": "<span color='#ff6699'><b>{}</b></span>",
-                "days": "<span color='#cdd6f4'><b>{}</b></span>",
-                "weekdays": "<span color='#7CD37C'><b>{}</b></span>",
-                "today": "<span color='#ffcc66'><b>{}</b></span>"
+                "months":   "<b>{}</b>",
+                "days":     "{}",
+                "weeks":    "<b>W{}</b>",
+                "weekdays": "<b>{}</b>",
+                "today":    "<b><u>{}</u></b>"
             }
         },
         "actions": {
             "on-click-right": "mode",
-            "on-click-middle": "shift_reset",
             "on-scroll-up": "shift_down",
-            "on-scroll-down": "shift_up"
+            "on-scroll-down": "shift_up",
+            "on-click-middle": "shift_reset"
         }
     },
 
